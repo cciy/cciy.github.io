@@ -1,0 +1,41 @@
+<div class="article-details">
+    {{ if .Params.categories }}
+    <header class="article-category">
+        {{ range (.GetTerms "categories") }}
+        <a href="{{ .RelPermalink }}" {{ with .Params.style
+           }}style="background-color: {{ .background }}; color: {{ .color }};" {{ end }}>
+            {{ .LinkTitle }}
+        </a>
+        {{ end }}
+    </header>
+    {{ end }}
+
+    <h2 class="article-title">
+        <a href="{{ .RelPermalink }}">
+            {{- .Title -}}
+        </a>
+    </h2>
+
+    {{ with .Params.description }}
+    <h3 class="article-subtitle">
+        {{ . }}
+    </h3>
+    {{ end }}
+
+    <footer class="article-time article-meta">
+        {{- if not .Date.IsZero -}}
+        <section>
+            {{ partial "helper/icon" "clock" }}
+            <time class="article-time--published">
+                {{- .Date.Format (or .Site.Params.dateFormat.published "2006年01月02日") -}}
+            </time>
+        </section>
+        {{- end -}}
+        <section>
+            {{ partial "helper/icon" "messages" }}
+            <a href="#waline"><span id="{{ .RelPermalink }}"  class="waline-comment-count">
+            </span>条评论</a>
+        </section>
+    </footer>
+</div>
+<style>.article-meta section{margin-right:20px}.article-meta{font-size:1.4rem}.article-meta a{color:var(--card-text-color-tertiary)}</style>

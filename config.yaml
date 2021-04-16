@@ -1,0 +1,164 @@
+baseurl: https://example.com
+languageCode: zh-cn
+theme: hugo-theme-stack
+paginate: 5
+title: Double`C Blog
+
+# Change it to your Disqus shortname before using
+disqusShortname: hugo-theme-stack
+#    博客目录中使用特殊字符（#，=等）
+preserveTaxonomyNames: true
+
+# GA Tracking ID
+googleAnalytics:
+
+# Theme i18n support
+#relURL: 将输入值转换为相对路径的url
+#absURL: 将输入值转换为绝对路径的url
+# Available values: en, fr, id, ja, ko, pt-br, zh-cn
+DefaultContentLanguage: zh-cn
+
+permalinks:
+#    博客存放地址
+    post: /:slug/
+    page: /:slug/
+
+params:
+    mainSections:
+        - post
+    #特色图片使用的字段，默认为 image。不建议修改。
+    featuredImageField: image
+    #RSS 输出文章完整内容
+    rssFullContent: true
+    #站点的图标，需要将head.html中的
+    favicon: icon/site-icon.svg
+
+    footer:
+        since: 2020
+        customText:
+
+    dateFormat:
+        published: 2006年01月02日
+        lastUpdated: 2006年01月02日 15:04 CST
+
+    sidebar:
+        emoji: 😉
+        #站点介绍
+        subtitle: 学习成长记录.
+        #个人头像
+        avatar:
+            local: true
+            src: img/avatar.png
+
+    article:
+        math: false
+        license:
+            enabled: true
+            default: Licensed under CC BY-NC-SA 4.0
+
+    comments:
+#        是否在文章底部默认显示评论系统
+        enabled: true
+        provider: waline
+
+        utterances:
+            repo: cciy/hugo-comment
+            issueTerm: pathname
+            label:
+
+        remark42:
+            host:
+            site:
+            locale:
+
+        waline:
+            path: location.pathname  # 全局评论地址
+            serverURL:
+            meta: nick,mail,link # waline comment header info
+            requiredFields: [ 'nick','mail' ]
+            placeholder: 快来评论吧~  # 评论占位提示
+            avatar: robohash # gravatar头像
+            avatarCDN: https://sdn.geekzu.org/avatar/ #不建议使用loli源
+            pageSize: 10 # 评论每页显示数量
+            lang: zh-CN
+
+
+
+    widgets:
+        enabled:
+            - search
+            - archives
+            - tag-cloud
+
+        archives:
+            limit: 5
+
+        tagCloud:
+            limit: 10
+
+        categoriesCloud:
+            limit: 20
+
+    opengraph:
+        twitter:
+            # Your Twitter username
+            site:
+
+            # Available values: summary, summary_large_image
+            card: summary_large_image
+
+    defaultImage:
+        opengraph:
+            enabled: false
+            local: false
+            src:
+
+    colorScheme:
+        # Display toggle
+        toggle: true
+
+        # Available values: auto, light, dark
+        default: auto
+
+    imageProcessing:
+        cover:
+            enabled: true
+        content:
+            enabled: true
+
+### Custom menu
+### See https://docs.stack.jimmycai.com/configuration/custom-menu
+### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
+#导航栏
+menu:
+    main:
+        - identifier: home
+          name: 主页
+          url: /
+          weight: -100
+          pre: home
+
+
+related:
+    includeNewer: true
+    threshold: 60
+    toLower: false
+    indices:
+        - name: tags
+          weight: 100
+
+        - name: categories
+          weight: 200
+
+markup:
+    highlight:
+        noClasses: false
+    tableOfContents:
+        endLevel: 3
+        ordered: false
+        startLevel: 2
+
+#模块配置：hugoVersio(extended:是否需要扩展版本的Hugo)
+module:
+    hugoVersion:
+        extended: true
