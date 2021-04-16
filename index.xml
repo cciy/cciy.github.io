@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Double`C Blog</title><link>https://example.com/</link><description>Recent content on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 14 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml"/><item><title>hugo博客搭建</title><link>https://example.com/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link><pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate><guid>https://example.com/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid><description>&lt;h2 id="关于hugo">关于Hugo&lt;/h2>
+&lt;h2 id="hugo下载">Hugo下载&lt;/h2></description></item><item><title>java位运算符</title><link>https://example.com/java%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</link><pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate><guid>https://example.com/java%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</guid><description>&lt;h2 id="什么是位运算符">什么是位运算符&lt;/h2>
+&lt;ul>
+&lt;li>位运算符对一个或者多个值进行计算，并得出一个计算结果。&lt;/li>
+&lt;li>位运算符的运算结果类型有的是固定的，会根据被计算的值变化。比如两个int相加，结果类型就是int。两个byte相加，返回值就是byte。&lt;/li>
+&lt;li>&lt;strong>混淆点&lt;/strong>：除了赋值运算符外，运算符本身不会更改变量的值&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>代码示例&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">Main&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="kd">public&lt;/span> &lt;span class="kd">static&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span> &lt;span class="n">args&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="kt">int&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">100&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">a&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">1&lt;/span>&lt;span class="o">);&lt;/span>
+&lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="o">);&lt;/span>
+&lt;span class="n">a&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">6&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="o">);&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>输出结果为：&lt;code>101 100 106&lt;/code>&lt;/p>
+&lt;h2 id="取模运算符font-colorredfont">取模运算符：&lt;!-- raw HTML omitted -->%&lt;!-- raw HTML omitted -->&lt;/h2>
+&lt;ul>
+&lt;li>用来计算余数&lt;/li>
+&lt;li>负数也可以取模&lt;/li>
+&lt;li>负数也可以被取模&lt;/li>
+&lt;li>小数也可以取模&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>代码示例&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">Main&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="kd">public&lt;/span> &lt;span class="kd">static&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span> &lt;span class="n">args&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="kt">int&lt;/span> &lt;span class="n">num&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">10&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">num&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="n">2&lt;/span>&lt;span class="o">);&lt;/span>
+&lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">num&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">3&lt;/span>&lt;span class="o">);&lt;/span>
+&lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">num&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="n">4&lt;/span>&lt;span class="o">);&lt;/span>
+&lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">num&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="n">5&lt;/span>&lt;span class="o">);&lt;/span>
+&lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">num&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">6&lt;/span>&lt;span class="o">);&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>输出结果为：&lt;code>0 1 2 0 4&lt;/code>&lt;/p>
+&lt;h2 id="整数的除法运算">整数的除法运算&lt;/h2>
+&lt;p>int除以int还是int，不会变成浮点数&lt;/p></description></item></channel></rss>
