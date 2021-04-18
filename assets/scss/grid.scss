@@ -38,6 +38,13 @@
                 width: 15%;
             }
         }
+        @media (min-width: $on-desktop-big) {
+            max-width: 2048px;
+
+            .left-sidebar {
+                width: 15%;
+            }
+        }
     }
 
     &.compact {
