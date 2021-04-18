@@ -12,12 +12,30 @@ image = ""
 tableofcontents = true
 +++
 
-## 关于Hugo ##
+## 选择Hugo的理由 ##
+
+截止2021年4月17日\
+**☆star数目**：\
+Hugo ：51.3k\
+Jekyll：42.5k\
+Hexo： 32.6k
+
+**编译速度**:\
+Hugo>Hexo>Jekyll\
+之所以有这样的结果是因为Hugo使用go语言是一种编译型语言，速度非常快，而Jekyll使用ruby编写，hexo使用nodejs编写，ruby与nodejs都是面向对象的高级解释型语言，执行效率比编译型语言要低。为什么Hexo介于二者之间，因为Nodejs的V8引擎比Ruby实现的方法要快。
 
 
- 
+**其他方面**\
+Jekyll 有github支持，可以将markdown文件直接放到git仓库，github会自动生成网页文件。（Github一直是一个亲ruby的社区）\
+Hexo提供了方便的部署命令，可以做到一条命令部署到github上，Hexo的主题非常多。\
+Hugo的官方文档写的非常好，部署简洁。前两者部署时需要安装很多依赖，而hugo可以直接提供二进制文件运行，甚至不需要root权限
 
 ## Hugo下载 ##
+
+从[Hugo Releases](https://github.com/gohugoio/hugo/releases)下载适合您平台的版本。下载后，二进制文件可以在任何地方运行。
+
+## Hugo安裝 ##
+
 
 
 
