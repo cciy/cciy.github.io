@@ -1,5 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Double`C Blog</title><link>https://example.com/</link><description>Recent content on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 14 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml"/><item><title>hugo博客搭建</title><link>https://example.com/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link><pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate><guid>https://example.com/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid><description>&lt;h2 id="关于hugo">关于Hugo&lt;/h2>
-&lt;h2 id="hugo下载">Hugo下载&lt;/h2></description></item><item><title>java位运算符</title><link>https://example.com/java%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</link><pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate><guid>https://example.com/java%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</guid><description>&lt;h2 id="什么是位运算符">什么是位运算符&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Double`C Blog</title><link>https://example.com/</link><description>Recent content on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 14 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml"/><item><title>hugo博客搭建</title><link>https://example.com/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link><pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate><guid>https://example.com/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid><description>&lt;h2 id="选择hugo的理由">选择Hugo的理由&lt;/h2>
+&lt;p>截止2021年4月17日&lt;br>
+&lt;strong>☆star数目&lt;/strong>：&lt;br>
+Hugo ：51.3k&lt;br>
+Jekyll：42.5k&lt;br>
+Hexo： 32.6k&lt;/p>
+&lt;p>&lt;strong>编译速度&lt;/strong>:&lt;br>
+Hugo&amp;gt;Hexo&amp;gt;Jekyll&lt;br>
+之所以有这样的结果是因为Hugo使用go语言是一种编译型语言，速度非常快，而Jekyll使用ruby编写，hexo使用nodejs编写，ruby与nodejs都是面向对象的高级解释型语言，执行效率比编译型语言要低。为什么Hexo介于二者之间，因为Nodejs的V8引擎比Ruby实现的方法要快。&lt;/p>
+&lt;p>&lt;strong>其他方面&lt;/strong>&lt;br>
+Jekyll 有github支持，可以将markdown文件直接放到git仓库，github会自动生成网页文件。（Github一直是一个亲ruby的社区）&lt;br>
+Hexo提供了方便的部署命令，可以做到一条命令部署到github上，Hexo的主题非常多。&lt;br>
+Hugo的官方文档写的非常好，部署简洁。前两者部署时需要安装很多依赖，而hugo可以直接提供二进制文件运行，甚至不需要root权限&lt;/p>
+&lt;h2 id="hugo下载">Hugo下载&lt;/h2>
+&lt;p>从&lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
+>Hugo Releases&lt;/a>下载适合您平台的版本。下载后，二进制文件可以在任何地方运行。&lt;/p>
+&lt;h2 id="hugo安裝">Hugo安裝&lt;/h2></description></item><item><title>java位运算符</title><link>https://example.com/java%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</link><pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate><guid>https://example.com/java%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</guid><description>&lt;h2 id="什么是位运算符">什么是位运算符&lt;/h2>
 &lt;ul>
 &lt;li>位运算符对一个或者多个值进行计算，并得出一个计算结果。&lt;/li>
 &lt;li>位运算符的运算结果类型有的是固定的，会根据被计算的值变化。比如两个int相加，结果类型就是int。两个byte相加，返回值就是byte。&lt;/li>
@@ -229,71 +244,7 @@ alt="Photo by Hudai Gayiran on Unsplash">
 >talk&lt;/a> during Gopherfest, November 18, 2015. &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item><item><title>Rich Content</title><link>https://example.com/rich-content/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>https://example.com/rich-content/</guid><description>&lt;p>Hugo ships with several &lt;a class="link" href="https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes" target="_blank" rel="noopener"
->Built-in Shortcodes&lt;/a> for rich content, along with a &lt;a class="link" href="https://gohugo.io/about/hugo-and-gdpr/" target="_blank" rel="noopener"
->Privacy Config&lt;/a> and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p>
-&lt;hr>
-&lt;h2 id="youtube-privacy-enhanced-shortcode">YouTube Privacy Enhanced Shortcode&lt;/h2>
-&lt;div class="video-wrapper">
-&lt;iframe loading="lazy"
-src="https://www.youtube.com/embed/ZJthWmvUzzc"
-allowfullscreen
-title="YouTube Video"
->
-&lt;/iframe>
-&lt;/div>
-&lt;!-- raw HTML omitted -->
-&lt;hr>
-&lt;h2 id="twitter-simple-shortcode">Twitter Simple Shortcode&lt;/h2>
-&lt;style type="text/css">
-.twitter-tweet {
-font: 14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-border-left: 4px solid #2b7bb9;
-padding-left: 1.5em;
-color: #555;
-}
-.twitter-tweet a {
-color: #2b7bb9;
-text-decoration: none;
-}
-blockquote.twitter-tweet a:hover,
-blockquote.twitter-tweet a:focus {
-text-decoration: underline;
-}
-&lt;/style>
-&lt;blockquote class="twitter-tweet">&lt;p lang="en" dir="ltr">“In addition to being more logical, asymmetry has the advantage that its complete appearance is far more optically effective than symmetry.”&lt;br>— Jan Tschichold &lt;a href="https://t.co/gcv7SrhvJb">pic.twitter.com/gcv7SrhvJb&lt;/a>&lt;/p>&amp;mdash; Graphic Design History (@DesignReviewed) &lt;a href="https://twitter.com/DesignReviewed/status/1085870671291310081?ref_src=twsrc%5Etfw">January 17, 2019&lt;/a>&lt;/blockquote>
-&lt;!-- raw HTML omitted -->
-&lt;hr>
-&lt;h2 id="vimeo-simple-shortcode">Vimeo Simple Shortcode&lt;/h2>
-&lt;style>
-.__h_video {
-position: relative;
-padding-bottom: 56.23%;
-height: 0;
-overflow: hidden;
-width: 100%;
-background: #000;
-}
-.__h_video img {
-width: 100%;
-height: auto;
-color: #000;
-}
-.__h_video .play {
-height: 72px;
-width: 72px;
-left: 50%;
-top: 50%;
-margin-left: -36px;
-margin-top: -36px;
-position: absolute;
-cursor: pointer;
-}
-&lt;/style>
-&lt;div class="s_video_simple __h_video">
-&lt;a href="https://vimeo.com/4.8912912e&amp;#43;07" rel="noopener" target="_blank">
-&lt;img src="https://i.vimeocdn.com/video/337401969_640.jpg" srcset="https://i.vimeocdn.com/video/337401969_640.jpg 1x, https://i.vimeocdn.com/video/337401969.jpg 2x" alt="Sing Jan Swing - Kinetic Type">
-&lt;div class="play">&lt;svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61">&lt;circle cx="30.5" cy="30.5" r="30.5" opacity=".8" fill="#000">&lt;/circle>&lt;path d="M25.3 19.2c-2.1-1.2-3.8-.2-3.8 2.2v18.1c0 2.4 1.7 3.4 3.8 2.2l16.6-9.1c2.1-1.2 2.1-3.2 0-4.4l-16.6-9z" fill="#fff">&lt;/path>&lt;/svg>&lt;/div>&lt;/a>&lt;/div></description></item><item><title>Placeholder Text</title><link>https://example.com/placeholder-text/</link><pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate><guid>https://example.com/placeholder-text/</guid><description>&lt;img src="https://example.com/placeholder-text/matt-le-SJSpo9hQf7s-unsplash.jpg" alt="Featured image of post Placeholder Text" />&lt;p>Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p>
+&lt;/section></description></item><item><title>Placeholder Text</title><link>https://example.com/placeholder-text/</link><pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate><guid>https://example.com/placeholder-text/</guid><description>&lt;img src="https://example.com/placeholder-text/matt-le-SJSpo9hQf7s-unsplash.jpg" alt="Featured image of post Placeholder Text" />&lt;p>Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p>
 &lt;p>Redit teque digerit hominumque toris verebor lumina non cervice subde tollit usus habet Arctonque, furores quas nec ferunt. Quoque montibus nunc caluere tempus inhospita parcite confusaque translucet patri vestro qui optatis lumine cognoscere flos nubis! Fronde ipsamque patulos Dryopen deorum.&lt;/p>
 &lt;ol>
 &lt;li>Exierant elisi ambit vivere dedere&lt;/li>
