@@ -2,7 +2,7 @@
 author = "CC"
 title = "java位运算符"
 date = "2021-04-10"
-description = ""
+description = "极客时间学习记录"
 categories = [
 "java"
 ]
@@ -58,3 +58,32 @@ public class Main {
 ## 整数的除法运算 ##
 int除以int还是int，不会变成浮点数
 
+**代码示例**
+```java
+public class Main {
+
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 3;
+        System.out.println(a / b);
+    }
+}
+```
+输出结果为`3`，如果想要得到一个浮点数只需将b改为`double b=3.0`得出的结果为`3.3333333333333335`，因为double是有精度的。
+
+## 比较运算符和布尔运算符 ##
+**<font color='blue'>比较运算符</font>**
+
+- \>
+- \>=
+- \<
+- \<=
+- \!=
+- \==
+
+**<font color='blue'>布尔运算符</font>**
+
+- !叫做<font color='red'>非</font>运算符。<font color='red'>not</font>运算符。!true是false，!false是true。
+- &叫做<font color='red'>且</font>运算符。<font color='red'>and</font>运算符。true&true是true，true&false是false。
+- &&叫做<font color='red'>且且</font>运算符。<font color='red'>andand</font>运算符。运算结果和&一样
+- |叫做<font color='red'>或</font>运算符。<font color='red'>or</font>运算符。true|false是true，false|false是false，true|trues是true.

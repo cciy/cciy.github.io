@@ -157,7 +157,12 @@ markup:
         endLevel: 3
         ordered: false
         startLevel: 2
-
+    goldmark:
+        renderer:
+            hardWraps: false
+#            默认情况下，Goldmark不呈现原始HTML和潜在危险的链接。如果您有很多内联HTML和JavaScript，则可能需要打开它。
+            unsafe: true
+            xhtml: false
 #模块配置：hugoVersio(extended:是否需要扩展版本的Hugo)
 module:
     hugoVersion:
