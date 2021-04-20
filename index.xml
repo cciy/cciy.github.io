@@ -8,13 +8,18 @@ Hexo： 32.6k&lt;/p>
 Hugo&amp;gt;Hexo&amp;gt;Jekyll&lt;br>
 之所以有这样的结果是因为Hugo使用go语言是一种编译型语言，速度非常快，而Jekyll使用ruby编写，hexo使用nodejs编写，ruby与nodejs都是面向对象的高级解释型语言，执行效率比编译型语言要低。为什么Hexo介于二者之间，因为Nodejs的V8引擎比Ruby实现的方法要快。&lt;/p>
 &lt;p>&lt;strong>其他方面&lt;/strong>&lt;br>
-Jekyll 有github支持，可以将markdown文件直接放到git仓库，github会自动生成网页文件。（Github一直是一个亲ruby的社区）&lt;br>
+Jekyll有github支持，可以将markdown文件直接放到git仓库，github会自动生成网页文件。（Github一直是一个亲ruby的社区）&lt;br>
 Hexo提供了方便的部署命令，可以做到一条命令部署到github上，Hexo的主题非常多。&lt;br>
 Hugo的官方文档写的非常好，部署简洁。前两者部署时需要安装很多依赖，而hugo可以直接提供二进制文件运行，甚至不需要root权限&lt;/p>
 &lt;h2 id="hugo下载">Hugo下载&lt;/h2>
 &lt;p>从&lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
->Hugo Releases&lt;/a>下载适合您平台的版本。下载后，二进制文件可以在任何地方运行。&lt;/p>
-&lt;h2 id="hugo安裝">Hugo安裝&lt;/h2></description></item><item><title>java位运算符</title><link>https://cciy.github.io/java%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</link><pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/java%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</guid><description>&lt;h2 id="什么是位运算符">什么是位运算符&lt;/h2>
+>Hugo Releases&lt;/a>下载适合您平台的版本。&lt;br>
+由于我是windows10环境，我这边下载安装的是hugo的扩展版&lt;a class="link" href="https://github.com/gohugoio/hugo/releases/download/v0.82.0/hugo_extended_0.82.0_Windows-64bit.zip" target="_blank" rel="noopener"
+>Hugo Extended&lt;/a>，扩展版和普通版的区别是扩展版可以自动编译scss的样式。&lt;/p>
+&lt;h2 id="hugo安裝">Hugo安裝&lt;/h2>
+&lt;p>将下载好的hugo_extended_0.82.0_Windows-64bit.zip安装包解压到你要安装的盘，然后配置环境变量。&lt;br>
+如我安装的在d盘,解压后修改文件夹名称为hugo，然后把D:\hugo加到环境变量的PATH中，&lt;strong>这一步很关键&lt;/strong>。&lt;br>
+查看是否安装成功：&lt;code>hugo version&lt;/code>&lt;/p></description></item><item><title>java位运算符</title><link>https://cciy.github.io/java%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</link><pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/java%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</guid><description>&lt;h2 id="什么是位运算符">什么是位运算符&lt;/h2>
 &lt;ul>
 &lt;li>位运算符对一个或者多个值进行计算，并得出一个计算结果。&lt;/li>
 &lt;li>位运算符的运算结果类型有的是固定的，会根据被计算的值变化。比如两个int相加，结果类型就是int。两个byte相加，返回值就是byte。&lt;/li>
