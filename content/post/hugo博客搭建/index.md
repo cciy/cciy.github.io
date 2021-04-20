@@ -26,15 +26,16 @@ Hugo>Hexo>Jekyll\
 
 
 **其他方面**\
-Jekyll 有github支持，可以将markdown文件直接放到git仓库，github会自动生成网页文件。（Github一直是一个亲ruby的社区）\
+Jekyll有github支持，可以将markdown文件直接放到git仓库，github会自动生成网页文件。（Github一直是一个亲ruby的社区）\
 Hexo提供了方便的部署命令，可以做到一条命令部署到github上，Hexo的主题非常多。\
 Hugo的官方文档写的非常好，部署简洁。前两者部署时需要安装很多依赖，而hugo可以直接提供二进制文件运行，甚至不需要root权限
 
 ## Hugo下载 ##
 
-从[Hugo Releases](https://github.com/gohugoio/hugo/releases)下载适合您平台的版本。下载后，二进制文件可以在任何地方运行。
+从[Hugo Releases](https://github.com/gohugoio/hugo/releases)下载适合您平台的版本。\
+由于我是windows10环境，我这边下载安装的是hugo的扩展版[Hugo Extended](https://github.com/gohugoio/hugo/releases/download/v0.82.0/hugo_extended_0.82.0_Windows-64bit.zip)，扩展版和普通版的区别是扩展版可以自动编译scss的样式。
 
 ## Hugo安裝 ##
-
-
-
+将下载好的hugo_extended_0.82.0_Windows-64bit.zip安装包解压到你要安装的盘，然后配置环境变量。\
+如我安装的在d盘,解压后修改文件夹名称为hugo，然后把D:\hugo加到环境变量的PATH中，**这一步很关键**。\
+查看是否安装成功：`hugo version`
