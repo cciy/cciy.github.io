@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Double`C Blog</title><link>https://cciy.github.io/</link><description>Recent content on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 14 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>hugo博客搭建</title><link>https://cciy.github.io/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link><pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid><description>&lt;h2 id="选择hugo的理由">选择Hugo的理由&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Double`C Blog</title><link>https://cciy.github.io/</link><description>Recent content on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 21 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>IDEA快捷键For Windows</title><link>https://cciy.github.io/idea%E5%BF%AB%E6%8D%B7%E9%94%AEfor-windows/</link><pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%BF%AB%E6%8D%B7%E9%94%AEfor-windows/</guid><description>&lt;h2 id="idea原始pdf文档查看">IDEA原始PDF文档查看&lt;/h2>
+&lt;p>点击Idea顶部菜单栏中 &lt;strong>&lt;font color='red'>Help&lt;/font>&lt;/strong> -&amp;gt; &lt;strong>&lt;font color='red'>Keymap Reference&lt;/font>&lt;/strong>，后出现一个快捷键PDF文档。&lt;/p>
+&lt;h3 id="一editing编辑">一、Editing编辑&lt;/h3>
+&lt;p>&lt;strong>代码补全&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ctrl + Space&lt;/td>
+&lt;td>基本的代码补全（类名、方法、变量）&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + Space&lt;/td>
+&lt;td>代码智能补全（类名、方法、变量）&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + Enter&lt;/td>
+&lt;td>智能结束代码&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>显示查看&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ctrl + P&lt;/td>
+&lt;td>显示该方法的参数信息（光标放在被调用方法的圆括号内，然后按此快捷键）&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Q&lt;/td>
+&lt;td>代码智能补全（类名、方法、变量）&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + Enter&lt;/td>
+&lt;td>智能结束代码&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>hugo博客搭建</title><link>https://cciy.github.io/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link><pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid><description>&lt;h2 id="选择hugo的理由">选择Hugo的理由&lt;/h2>
 &lt;p>截止2021年4月17日&lt;br>
 &lt;strong>☆star数目&lt;/strong>：&lt;br>
 Hugo ：51.3k&lt;br>
@@ -26,7 +82,20 @@ Hugo的官方文档写的非常好，部署简洁。前两者部署时需要安�
 &lt;li>&lt;strong>混淆点&lt;/strong>：除了赋值运算符外，运算符本身不会更改变量的值&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>代码示例&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">Main&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">Main&lt;/span> &lt;span class="o">{&lt;/span>
 &lt;span class="kd">public&lt;/span> &lt;span class="kd">static&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span> &lt;span class="n">args&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
 &lt;span class="kt">int&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">100&lt;/span>&lt;span class="o">;&lt;/span>
 &lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">a&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">1&lt;/span>&lt;span class="o">);&lt;/span>
@@ -35,7 +104,9 @@ Hugo的官方文档写的非常好，部署简洁。前两者部署时需要安�
 &lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="o">);&lt;/span>
 &lt;span class="o">}&lt;/span>
 &lt;span class="o">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>输出结果为：&lt;code>101 100 106&lt;/code>&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出结果为：&lt;code>101 100 106&lt;/code>&lt;/p>
 &lt;h2 id="取模运算符font-colorredfont">取模运算符：&lt;font color='red'>%&lt;/font>&lt;/h2>
 &lt;ul>
 &lt;li>用来计算余数&lt;/li>
@@ -44,7 +115,22 @@ Hugo的官方文档写的非常好，部署简洁。前两者部署时需要安�
 &lt;li>小数也可以取模&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>代码示例&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">Main&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">Main&lt;/span> &lt;span class="o">{&lt;/span>
 &lt;span class="kd">public&lt;/span> &lt;span class="kd">static&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span> &lt;span class="n">args&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
 &lt;span class="kt">int&lt;/span> &lt;span class="n">num&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">10&lt;/span>&lt;span class="o">;&lt;/span>
 &lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">num&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="n">2&lt;/span>&lt;span class="o">);&lt;/span>
@@ -54,18 +140,34 @@ Hugo的官方文档写的非常好，部署简洁。前两者部署时需要安�
 &lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">num&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">6&lt;/span>&lt;span class="o">);&lt;/span>
 &lt;span class="o">}&lt;/span>
 &lt;span class="o">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>输出结果为：&lt;code>0 1 2 0 4&lt;/code>&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出结果为：&lt;code>0 1 2 0 4&lt;/code>&lt;/p>
 &lt;h2 id="整数的除法运算">整数的除法运算&lt;/h2>
 &lt;p>int除以int还是int，不会变成浮点数&lt;/p>
 &lt;p>&lt;strong>代码示例&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">Main&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">Main&lt;/span> &lt;span class="o">{&lt;/span>
 &lt;span class="kd">public&lt;/span> &lt;span class="kd">static&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span> &lt;span class="n">args&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
 &lt;span class="kt">int&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">10&lt;/span>&lt;span class="o">;&lt;/span>
 &lt;span class="kt">int&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">3&lt;/span>&lt;span class="o">;&lt;/span>
 &lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">a&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="o">);&lt;/span>
 &lt;span class="o">}&lt;/span>
 &lt;span class="o">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>输出结果为&lt;code>3&lt;/code>，如果想要得到一个浮点数只需将b改为&lt;code>double b=3.0&lt;/code>得出的结果为&lt;code>3.3333333333333335&lt;/code>，因为double是有精度的。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出结果为&lt;code>3&lt;/code>，如果想要得到一个浮点数只需将b改为&lt;code>double b=3.0&lt;/code>得出的结果为&lt;code>3.3333333333333335&lt;/code>，因为double是有精度的。&lt;/p>
 &lt;h2 id="比较运算符和布尔运算符">比较运算符和布尔运算符&lt;/h2>
 &lt;p>&lt;strong>&lt;font color='blue'>比较运算符&lt;/font>&lt;/strong>&lt;/p>
 &lt;ul>
@@ -133,9 +235,18 @@ alt="Photo by Hudai Gayiran on Unsplash">
 &lt;/a>
 &lt;figcaption>Photo by Hudai Gayiran on Unsplash&lt;/figcaption>
 &lt;/figure>&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">![&lt;span class="nt">Photo by Florian Klauer on Unsplash&lt;/span>](&lt;span class="na">florian-klauer-nptLmg6jqDo-unsplash.jpg&lt;/span>) ![&lt;span class="nt">Photo by Luca Bravo on Unsplash&lt;/span>](&lt;span class="na">luca-bravo-alS7ewQ41M8-unsplash.jpg&lt;/span>)
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">![&lt;span class="nt">Photo by Florian Klauer on Unsplash&lt;/span>](&lt;span class="na">florian-klauer-nptLmg6jqDo-unsplash.jpg&lt;/span>) ![&lt;span class="nt">Photo by Luca Bravo on Unsplash&lt;/span>](&lt;span class="na">luca-bravo-alS7ewQ41M8-unsplash.jpg&lt;/span>)
 ![&lt;span class="nt">Photo by Helena Hertz on Unsplash&lt;/span>](&lt;span class="na">helena-hertz-wWZzXlDpMog-unsplash.jpg&lt;/span>) ![&lt;span class="nt">Photo by Hudai Gayiran on Unsplash&lt;/span>](&lt;span class="na">hudai-gayiran-3Od_VKcDEAA-unsplash.jpg&lt;/span>)
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>相册语法来自 &lt;a class="link" href="https://typlog.com/" target="_blank" rel="noopener"
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>相册语法来自 &lt;a class="link" href="https://typlog.com/" target="_blank" rel="noopener"
 >Typlog&lt;/a>&lt;/p></description></item><item><title>Markdown Syntax Guide</title><link>https://cciy.github.io/markdown-syntax-guide/</link><pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate><guid>https://cciy.github.io/markdown-syntax-guide/</guid><description>&lt;img src="https://cciy.github.io/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown Syntax Guide" />&lt;p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p>
 &lt;h2 id="headings">Headings&lt;/h2>
 &lt;p>The following HTML &lt;code>&amp;lt;h1&amp;gt;&lt;/code>—&lt;code>&amp;lt;h6&amp;gt;&lt;/code> elements represent six levels of section headings. &lt;code>&amp;lt;h1&amp;gt;&lt;/code> is the highest section level while &lt;code>&amp;lt;h6&amp;gt;&lt;/code> is the lowest.&lt;/p>
@@ -199,7 +310,21 @@ alt="Photo by Hudai Gayiran on Unsplash">
 &lt;/table>
 &lt;h2 id="code-blocks">Code Blocks&lt;/h2>
 &lt;h4 id="code-block-with-backticks">Code block with backticks&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;en&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
@@ -209,7 +334,9 @@ alt="Photo by Hudai Gayiran on Unsplash">
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Test&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="code-block-indented-with-four-spaces">Code block indented with four spaces&lt;/h4>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="code-block-indented-with-four-spaces">Code block indented with four spaces&lt;/h4>
 &lt;pre>&lt;code>&amp;lt;!doctype html&amp;gt;
 &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
 &amp;lt;head&amp;gt;
@@ -222,7 +349,21 @@ alt="Photo by Hudai Gayiran on Unsplash">
 &amp;lt;/html&amp;gt;
 &lt;/code>&lt;/pre>
 &lt;h4 id="code-block-with-hugos-internal-highlight-shortcode">Code block with Hugo&amp;rsquo;s internal highlight shortcode&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;en&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
@@ -231,7 +372,9 @@ alt="Photo by Hudai Gayiran on Unsplash">
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Test&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
 &lt;h2 id="list-types">List Types&lt;/h2>
 &lt;h4 id="ordered-list">Ordered List&lt;/h4>
 &lt;ol>
@@ -307,10 +450,19 @@ alt="Photo by Hudai Gayiran on Unsplash">
 >Auto-render Extension&lt;/a> or host these scripts locally.&lt;/li>
 &lt;li>Include the partial in your templates like so:&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="o">{{&lt;/span> &lt;span class="k">if&lt;/span> or .Params.math .Site.Params.math &lt;span class="o">}}&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="o">{{&lt;/span> &lt;span class="k">if&lt;/span> or .Params.math .Site.Params.math &lt;span class="o">}}&lt;/span>
 &lt;span class="o">{{&lt;/span> partial &lt;span class="s2">&amp;#34;math.html&amp;#34;&lt;/span> . &lt;span class="o">}}&lt;/span>
 &lt;span class="o">{{&lt;/span> end &lt;span class="o">}}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
 &lt;li>To enable KaTex globally set the parameter &lt;code>math&lt;/code> to &lt;code>true&lt;/code> in a project&amp;rsquo;s configuration&lt;/li>
 &lt;li>To enable KaTex on a per page basis include the parameter &lt;code>math: true&lt;/code> in content files&lt;/li>
 &lt;/ul>
@@ -332,6 +484,15 @@ $$&lt;/p></description></item><item><title>Emoji Support</title><link>https://cc
 >Emoji cheat sheet&lt;/a> is a useful reference for emoji shorthand codes.&lt;/p>
 &lt;hr>
 &lt;p>&lt;strong>N.B.&lt;/strong> The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-html" data-lang="html">.emoji {
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-html" data-lang="html">.emoji {
 font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
-}&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+}&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>
