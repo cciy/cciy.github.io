@@ -19,151 +19,160 @@ googleAnalytics:
 DefaultContentLanguage: zh-cn
 
 permalinks:
-#    博客存放地址
-    post: /:slug/
-    page: /:slug/
+  #    博客存放地址
+  post: /:slug/
+  page: /:slug/
 
 params:
-    mainSections:
-        - post
-    #特色图片使用的字段，默认为 image。不建议修改。
-    featuredImageField: image
-    #RSS 输出文章完整内容
-    rssFullContent: true
-    #站点的图标，需要将head.html中的
-    favicon: icon/site-icon.svg
+  mainSections:
+    - post
+  #特色图片使用的字段，默认为 image。不建议修改。
+  featuredImageField: image
+  #RSS 输出文章完整内容
+  rssFullContent: true
+  #站点的图标，需要将head.html中的
+  favicon: icon/site-icon.svg
 
-    footer:
-        since: 2020
-        customText:
+  footer:
+    since: 2020
+    customText:
 
-    dateFormat:
-        published: 2006年01月02日
-        lastUpdated: 2006年01月02日 15:04 CST
+  dateFormat:
+    published: 2006年01月02日
+    lastUpdated: 2006年01月02日 15:04 CST
 
-    sidebar:
-        emoji: 😉
-        #站点介绍
-        subtitle: 学习成长记录.
-        #个人头像
-        avatar:
-            local: true
-            src: img/avatar.png
+  sidebar:
+    emoji: 😉
+    #站点介绍
+    subtitle: 学习成长记录.
+    #个人头像
+    avatar:
+      local: true
+      src: img/avatar.png
 
-    article:
-        math: false
-        license:
-            enabled: true
-            default: Licensed under CC BY-NC-SA 4.0
+  article:
+    math: false
+    license:
+      enabled: true
+      default: Licensed under CC BY-NC-SA 4.0
 
-    comments:
-#        是否在文章底部默认显示评论系统
-        enabled: true
-        provider: waline
+  comments:
+    #        是否在文章底部默认显示评论系统
+    enabled: true
+    provider: waline
 
-        utterances:
-            repo: cciy/hugo-comment
-            issueTerm: pathname
-            label:
+    utterances:
+      repo: cciy/hugo-comment
+      issueTerm: pathname
+      label:
 
-        remark42:
-            host:
-            site:
-            locale:
+    remark42:
+      host:
+      site:
+      locale:
 
-        waline:
-            path: location.pathname  # 全局评论地址
-            serverURL:
-            meta: nick,mail,link # waline comment header info
-            requiredFields: [ 'nick','mail' ]
-            placeholder: 快来评论吧~  # 评论占位提示
-            avatar: robohash # gravatar头像
-            avatarCDN: https://sdn.geekzu.org/avatar/ #不建议使用loli源
-            pageSize: 10 # 评论每页显示数量
-            lang: zh-CN
+    waline:
+      path: location.pathname  # 全局评论地址
+      serverURL:
+      meta: nick,mail,link # waline comment header info
+      requiredFields: [ 'nick','mail' ]
+      placeholder: 快来评论吧~  # 评论占位提示
+      avatar: robohash # gravatar头像
+      avatarCDN: https://sdn.geekzu.org/avatar/ #不建议使用loli源
+      pageSize: 10 # 评论每页显示数量
+      lang: zh-CN
 
 
 
-    widgets:
-        enabled:
-            - search
-            - archives
-            - tag-cloud
+  widgets:
+    enabled:
+      - search
+      - archives
+      - tag-cloud
 
-        archives:
-            limit: 5
+    archives:
+      limit: 5
 
-        tagCloud:
-            limit: 10
+    tagCloud:
+      limit: 10
 
-        categoriesCloud:
-            limit: 20
+    categoriesCloud:
+      limit: 20
 
+  opengraph:
+    twitter:
+      # Your Twitter username
+      site:
+
+      # Available values: summary, summary_large_image
+      card: summary_large_image
+
+  defaultImage:
     opengraph:
-        twitter:
-            # Your Twitter username
-            site:
+      enabled: false
+      local: false
+      src:
 
-            # Available values: summary, summary_large_image
-            card: summary_large_image
+  colorScheme:
+    # Display toggle
+    toggle: true
 
-    defaultImage:
-        opengraph:
-            enabled: false
-            local: false
-            src:
+    # Available values: auto, light, dark
+    default: auto
 
-    colorScheme:
-        # Display toggle
-        toggle: true
-
-        # Available values: auto, light, dark
-        default: auto
-
-    imageProcessing:
-        cover:
-            enabled: true
-        content:
-            enabled: true
+  imageProcessing:
+    cover:
+      enabled: true
+    content:
+      enabled: true
 
 ### Custom menu
 ### See https://docs.stack.jimmycai.com/configuration/custom-menu
 ### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
 #导航栏
 menu:
-    main:
-        - identifier: home
-          name: 主页
-          url: /
-          weight: -100
-          pre: home
+  main:
+    - identifier: home
+      name: 主页
+      url: /
+      weight: -100
+      pre: home
 
 
 related:
-    includeNewer: true
-    threshold: 60
-    toLower: false
-    indices:
-        - name: tags
-          weight: 100
+  includeNewer: true
+  threshold: 60
+  toLower: false
+  indices:
+    - name: tags
+      weight: 100
 
-        - name: categories
-          weight: 200
+    - name: categories
+      weight: 200
 
+#配置见https://gohugo.io/getting-started/configuration-markup/#goldmark
 markup:
-    highlight:
-        noClasses: false
-    tableOfContents:
-        endLevel: 3
-        ordered: false
-        startLevel: 2
-    goldmark:
-        renderer:
-            hardWraps: false
-#            默认情况下，Goldmark不呈现原始HTML和潜在危险的链接。如果您有很多内联HTML和JavaScript，则可能需要打开它。
-            unsafe: true
-            xhtml: false
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    noClasses: false
+    lineNumbersInTable: true
+  #    是否显示行
+    linenos: true
+    tabWidth: 4
+  #        内容目录表格
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 2
+  goldmark:
+    renderer:
+      hardWraps: false
+      #            默认情况下，Goldmark不呈现原始HTML和潜在危险的链接。如果您有很多内联HTML和JavaScript，则可能需要打开它。
+      unsafe: true
+      xhtml: false
 #模块配置：hugoVersio(extended:是否需要扩展版本的Hugo)
 module:
-    hugoVersion:
-        extended: true
+  hugoVersion:
+    extended: true

@@ -39,3 +39,25 @@
 .widget--toc #TableOfContents li > ul > li:last-child {
   margin-bottom: 0
 }
+
+//代码块添加一个Cope按钮。首先定义按钮的样式
+.highlight-copy-btn {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  border: 0;
+  border-radius: 4px;
+  padding: 1px;
+  font-size: 0.8em;
+  line-height: 1.8;
+  color: #fff;
+  background-color: #777;
+  min-width: 55px;
+  text-align: center;
+}
+.highlight-copy-btn:hover {
+  background-color: #666;
+}
+.highlight {
+  position: relative;
+}
