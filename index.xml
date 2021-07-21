@@ -1,4 +1,91 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Double`C Blog</title><link>https://cciy.github.io/</link><description>Recent content on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 07 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>hugo修改代码块</title><link>https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/</link><pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/</guid><description>&lt;h2 id="hugo官网markdown和其他与标记相关的配置">hugo官网Markdown和其他与标记相关的配置&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Double`C Blog</title><link>https://cciy.github.io/</link><description>Recent content on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 21 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>MongoDB没有mongodump和mongorestore命令</title><link>https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/</link><pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/</guid><description>&lt;h2 id="问题">问题&lt;/h2>
+&lt;p>Windows 10安装MongoDB后想使用mongodump和mongorestore命令，进行数据的导入和导出，发现在安装的目录下的bin目录，发现bin目录中并没有对应的mongodump和mongorestore。&lt;/p>
+&lt;h2 id="原因">原因&lt;/h2>
+&lt;p>MongoDB4.4版本进行了功能拆分，如需要更多的工具，自行下载&lt;/p>
+&lt;h2 id="解决方法">解决方法&lt;/h2>
+&lt;p>在&lt;a class="link" href="https://www.mongodb.com/try/download/database-tools" target="_blank" rel="noopener"
+>官网自行下载&lt;/a>对应的Tools工具,然后解压放到MongoDB的安装目录下面，再配置环境就可以直接在windows下使用mongodump和mongorestore
+&lt;figure style="flex-grow: 251; flex-basis: 603px">
+&lt;a href="https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/MongoDB.jpg" data-size="1837x731">&lt;img src="https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/MongoDB.jpg"
+srcset="https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/MongoDB_huab4c776412b15b847c9d7de09a57dc62_56764_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/MongoDB_huab4c776412b15b847c9d7de09a57dc62_56764_1024x0_resize_q75_box.jpg 1024w"
+width="1837"
+height="731"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;p>博客参考来源:&lt;br>
+  &lt;a class="link" href="https://blog.csdn.net/bidang3275/article/details/115052010" target="_blank" rel="noopener"
+>mongoDB4.4版本没有mongodump和mongorestore命令&lt;/a>&lt;/p></description></item><item><title>Idea实现javap工具反编译</title><link>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</link><pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</guid><description>&lt;h2 id="通过jdk的命令javap可以反编译查看字节码">通过Jdk的命令javap可以反编译查看字节码&lt;/h2>
+&lt;p>&lt;figure style="flex-grow: 147; flex-basis: 354px">
+&lt;a href="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1.jpg" data-size="645x437">&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1.jpg"
+srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1_hu982970e3b7501ee9c3b0fd23c6ad271c_23856_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1_hu982970e3b7501ee9c3b0fd23c6ad271c_23856_1024x0_resize_q75_box.jpg 1024w"
+width="645"
+height="437"
+loading="lazy"
+alt="step one">
+&lt;/a>
+&lt;figcaption>step one&lt;/figcaption>
+&lt;/figure>&lt;br>
+&lt;figure style="flex-grow: 122; flex-basis: 292px">
+&lt;a href="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2.jpg" data-size="1040x852">&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2.jpg"
+srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2_hu380a0cd1a47aa8d65aacb2d961570720_47368_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2_hu380a0cd1a47aa8d65aacb2d961570720_47368_1024x0_resize_q75_box.jpg 1024w"
+width="1040"
+height="852"
+loading="lazy"
+alt="step two">
+&lt;/a>
+&lt;figcaption>step two&lt;/figcaption>
+&lt;/figure>&lt;br>
+按照如下图所示填写相关参数&lt;br>
+&lt;figure style="flex-grow: 140; flex-basis: 336px">
+&lt;a href="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3.jpg" data-size="998x712">&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3.jpg"
+srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3_hub9419c9841c2bfe946cf6cb3c35a8590_43162_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3_hub9419c9841c2bfe946cf6cb3c35a8590_43162_1024x0_resize_q75_box.jpg 1024w"
+width="998"
+height="712"
+loading="lazy"
+alt="step three">
+&lt;/a>
+&lt;figcaption>step three&lt;/figcaption>
+&lt;/figure>&lt;br>
+添加工具，分别设置program，argument等，其中arguments中是javap的参数，具体的参数信息可以去看下help信息
+&lt;figure style="flex-grow: 155; flex-basis: 374px">
+&lt;a href="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4.jpg" data-size="667x428">&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4.jpg"
+srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4_hua11fa80cb2e92df9c007c721af94dd92_39569_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4_hua11fa80cb2e92df9c007c721af94dd92_39569_1024x0_resize_q75_box.jpg 1024w"
+width="667"
+height="428"
+loading="lazy"
+alt="step four">
+&lt;/a>
+&lt;figcaption>step four&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>博客参考来源:&lt;br>
+  &lt;a class="link" href="https://www.cnblogs.com/alinainai/p/11723371.html" target="_blank" rel="noopener"
+>IDEA设置External Tools之Javap反编译字节码&lt;/a>&lt;br>
+  &lt;a class="link" href="https://www.cnblogs.com/QW-lzm/p/12643399.html" target="_blank" rel="noopener"
+>intellij idea中使用External Tool实现javap工具反编译&lt;/a>&lt;/p></description></item><item><title>idea多次启动</title><link>https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/</link><pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/</guid><description>&lt;p>最新版的idea启动和老版启动不太一样&lt;br>
+&lt;figure style="flex-grow: 170; flex-basis: 408px">
+&lt;a href="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1.bmp" data-size="359x211">&lt;img src="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1.bmp"
+srcset="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1_hu8834c53d1dd409297d7eff9ca9cca1ee_303050_480x0_resize_box.bmp 480w, https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1_hu8834c53d1dd409297d7eff9ca9cca1ee_303050_1024x0_resize_box.bmp 1024w"
+width="359"
+height="211"
+loading="lazy"
+alt="step one">
+&lt;/a>
+&lt;figcaption>step one&lt;/figcaption>
+&lt;/figure>
+然后点击下图按钮&lt;br>
+&lt;figure style="flex-grow: 188; flex-basis: 453px">
+&lt;a href="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2.bmp" data-size="1329x704">&lt;img src="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2.bmp"
+srcset="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2_hu071dbc097ab6ffc738be43d697789963_3742518_480x0_resize_box.bmp 480w, https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2_hu071dbc097ab6ffc738be43d697789963_3742518_1024x0_resize_box.bmp 1024w"
+width="1329"
+height="704"
+loading="lazy"
+alt="step two">
+&lt;/a>
+&lt;figcaption>step two&lt;/figcaption>
+&lt;/figure>
+添加即可多次启动同一个 main 方法&lt;/p></description></item><item><title>hugo修改代码块</title><link>https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/</link><pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/</guid><description>&lt;h2 id="hugo官网markdown和其他与标记相关的配置">hugo官网Markdown和其他与标记相关的配置&lt;/h2>
 &lt;p>根据hugo官网中Markdown设置&lt;a class="link" href="https://gohugo.io/getting-started/configuration-markup/#highlight" target="_blank" rel="noopener"
 >代码块高亮的配置&lt;/a>&lt;br>
 如图：

@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Double`C Blog</title><link>https://cciy.github.io/post/</link><description>Recent content in Posts on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 07 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>hugo修改代码块</title><link>https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/</link><pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/</guid><description>hugo官网Markdown和其他与标记相关的配置 根据hugo官网中Markdown设置代码块高亮的配置
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Double`C Blog</title><link>https://cciy.github.io/post/</link><description>Recent content in Posts on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 21 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>MongoDB没有mongodump和mongorestore命令</title><link>https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/</link><pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/</guid><description>问题 Windows 10安装MongoDB后想使用mongodump和mongorestore命令，进行数据的导入和导出，发现在安装的目录下的bin目录，发现bin目录中并没有对应的mongodump和mongorestore。
+原因 MongoDB4.4版本进行了功能拆分，如需要更多的工具，自行下载
+解决方法 在官网自行下载对应的Tools工具,然后解压放到MongoDB的安装目录下面，再配置环境就可以直接在windows下使用mongodump和mongorestore
+博客参考来源:
+mongoDB4.4版本没有mongodump和mongorestore命令</description></item><item><title>Idea实现javap工具反编译</title><link>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</link><pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</guid><description>通过Jdk的命令javap可以反编译查看字节码 step one
+step two
+按照如下图所示填写相关参数
+step three
+添加工具，分别设置program，argument等，其中arguments中是javap的参数，具体的参数信息可以去看下help信息 step four
+博客参考来源:
+IDEA设置External Tools之Javap反编译字节码
+intellij idea中使用External Tool实现javap工具反编译</description></item><item><title>idea多次启动</title><link>https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/</link><pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/</guid><description>最新版的idea启动和老版启动不太一样
+step one 然后点击下图按钮
+step two 添加即可多次启动同一个 main 方法</description></item><item><title>hugo修改代码块</title><link>https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/</link><pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/</guid><description>hugo官网Markdown和其他与标记相关的配置 根据hugo官网中Markdown设置代码块高亮的配置
 如图： Photo From Hugo 将其配置拷贝到你的hugo配置中
 1 2 3 4 5 6 7 8 9 10 11 12 13 markup:highlight:anchorLineNos:falsecodeFences:trueguessSyntax:falsehl_Lines:&amp;#34;&amp;#34;lineAnchors:&amp;#34;&amp;#34;lineNoStart:1#行从几开始lineNos:false#是否显示行列lineNumbersInTable:truenoClasses:truestyle:monokai #代码样式tabWidth:4 其中代码的样式可以通过style样式指定
 如想单独配置某一个代码块，可以按照官网例子如下配置：
