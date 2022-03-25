@@ -1,0 +1,417 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="SpringBoot通过拦截器和注解的方式实现接口的统一返回"><title>SpringBoot优雅的实现接口统一输出</title><link rel=canonical href=https://cciy.github.io/springboot%E4%BC%98%E9%9B%85%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E7%BB%9F%E4%B8%80%E8%BE%93%E5%87%BA/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="SpringBoot优雅的实现接口统一输出"><meta property="og:description" content="SpringBoot通过拦截器和注解的方式实现接口的统一返回"><meta property="og:url" content="https://cciy.github.io/springboot%E4%BC%98%E9%9B%85%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E7%BB%9F%E4%B8%80%E8%BE%93%E5%87%BA/"><meta property="og:site_name" content="Double`C Blog"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:published_time" content="2021-07-22T00:00:00+00:00"><meta property="article:modified_time" content="2021-07-22T00:00:00+00:00"><meta name=twitter:title content="SpringBoot优雅的实现接口统一输出"><meta name=twitter:description content="SpringBoot通过拦截器和注解的方式实现接口的统一返回"><link rel="shortcut icon" href=/icon/site-icon.svg><style>:root{--article-font-family:"Noto Serif SC", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></head><body><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.body.dataset.scheme="dark":document.body.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended article-page with-toolbar"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header class=site-info><figure class=site-avatar><img src=/img/avatar_hu901c40de2d13626daedaafd7ac54de2c_77578_300x0_resize_box_3.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+<span class=emoji>😉</span></figure><h1 class=site-name><a href=https://cciy.github.io>Double`C Blog</a></h1><h2 class=site-description>学习成长记录.</h2></header><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>主页</span></a></li><li><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>关于</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>文章</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>搜索</span></a></li><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>暗色模式</span></li></ol></aside><main class="main full-width"><div id=article-toolbar><a href=https://cciy.github.io class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/spring/>Spring</a>
+<a href=/categories/springboot/>SpringBoot</a></header><h2 class=article-title><a href=/springboot%E4%BC%98%E9%9B%85%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E7%BB%9F%E4%B8%80%E8%BE%93%E5%87%BA/>SpringBoot优雅的实现接口统一输出</a></h2><h3 class=article-subtitle>SpringBoot通过拦截器和注解的方式实现接口的统一返回</h3><footer class="article-time article-meta"><section><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>2021年07月22日</time></section><section><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-messages" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M21 14l-3-3h-7a1 1 0 01-1-1V4a1 1 0 011-1h9a1 1 0 011 1v10"/><path d="M14 15v2a1 1 0 01-1 1H6l-3 3V11a1 1 0 011-1h2"/></svg><a href=#waline><span id=/springboot%E4%BC%98%E9%9B%85%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E7%BB%9F%E4%B8%80%E8%BE%93%E5%87%BA/ class=waline-comment-count></span>条评论</a></section></footer></div><style>.article-meta section{margin-right:20px}.article-meta{font-size:1.4rem}.article-meta a{color:var(--card-text-color-tertiary)}</style></header><section class=article-content><h3 id=1注解类responeresult>1、注解类ResponeResult</h3><p>如下代码实现注解ResponeResul</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kn>package</span> <span class=nn>com.example.springcs.annotation</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>java.lang.annotation.*</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nd>@Retention</span><span class=o>(</span><span class=n>RetentionPolicy</span><span class=o>.</span><span class=na>RUNTIME</span><span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=nd>@Target</span><span class=o>({</span><span class=n>ElementType</span><span class=o>.</span><span class=na>TYPE</span><span class=o>,</span><span class=n>ElementType</span><span class=o>.</span><span class=na>METHOD</span><span class=o>})</span>
+</span></span><span class=line><span class=cl><span class=nd>@Documented</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=nd>@interface</span> <span class=n>ResponeResult</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=2返回枚举的实现>2、返回枚举的实现</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kn>package</span> <span class=nn>com.example.springcs.utils</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>enum</span> <span class=n>EnumCode</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>SUCCESS</span><span class=o>(</span><span class=n>20000</span><span class=o>,</span> <span class=s>&#34;success&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>REDIRECT</span><span class=o>(</span><span class=n>10000</span><span class=o>,</span> <span class=s>&#34;success&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>NOAD</span><span class=o>(</span><span class=n>20001</span><span class=o>,</span> <span class=s>&#34;no ad exists&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_HTTP</span><span class=o>(</span><span class=n>40000</span><span class=o>,</span> <span class=s>&#34;http content-type error&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_APP_NULL</span><span class=o>(</span><span class=n>40001</span><span class=o>,</span> <span class=s>&#34;app info is required&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_APP_INFO</span><span class=o>(</span><span class=n>40002</span><span class=o>,</span> <span class=s>&#34;invalid app info&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_ADCODE_NULL</span><span class=o>(</span><span class=n>40003</span><span class=o>,</span> <span class=s>&#34;ad code is required&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_ADTYPE_NULL</span><span class=o>(</span><span class=n>40004</span><span class=o>,</span> <span class=s>&#34;ad type is required&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_SCHE_NULL</span><span class=o>(</span><span class=n>40005</span><span class=o>,</span> <span class=s>&#34;scheduler not exist&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_UAD_REPEAT</span><span class=o>(</span><span class=n>40006</span><span class=o>,</span> <span class=s>&#34;user ad repeated&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_PLATFORM_NULL</span><span class=o>(</span><span class=n>40007</span><span class=o>,</span> <span class=s>&#34;platform config not exist&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_REQ_CONTENT_DEFECT</span><span class=o>(</span><span class=n>40009</span><span class=o>,</span> <span class=s>&#34;request content data defect&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_UNKNOWN_TOKEN</span><span class=o>(</span><span class=n>40010</span><span class=o>,</span> <span class=s>&#34;unknown token&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_SIGNATURE</span><span class=o>(</span><span class=n>40011</span><span class=o>,</span> <span class=s>&#34;signature error&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_BLACKLIST</span><span class=o>(</span><span class=n>40012</span><span class=o>,</span> <span class=s>&#34;user blocked by blacklist&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_SERVER</span><span class=o>(</span><span class=n>50001</span><span class=o>,</span> <span class=s>&#34;server error&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_DATA</span><span class=o>(</span><span class=n>50002</span><span class=o>,</span> <span class=s>&#34;data error&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_TIMEOUT</span><span class=o>(</span><span class=n>50003</span><span class=o>,</span> <span class=s>&#34;request ad server timeout&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_ANTI_CHEAT</span><span class=o>(</span><span class=n>50004</span><span class=o>,</span> <span class=s>&#34;user blocked by anti cheat&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_UNKNOWN</span><span class=o>(</span><span class=n>50005</span><span class=o>,</span> <span class=s>&#34;unknown error&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_MATERIAL_RULES</span><span class=o>(</span><span class=n>50006</span><span class=o>,</span> <span class=s>&#34;ad material blocked&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_MATERIAL_UNAPPROVED</span><span class=o>(</span><span class=n>50007</span><span class=o>,</span> <span class=s>&#34;ad material is unapproved&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_MATERIAL_FILTERED</span><span class=o>(</span><span class=n>50008</span><span class=o>,</span> <span class=s>&#34;ad material are filtered&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERR_MATERIAL_AUDITED</span><span class=o>(</span><span class=n>50009</span><span class=o>,</span> <span class=s>&#34;ad material are audited&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERROR_PARAM</span><span class=o>(</span><span class=n>60001</span><span class=o>,</span> <span class=s>&#34;param error&#34;</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>    <span class=n>ERROR_ACCESS</span><span class=o>(</span><span class=n>60002</span><span class=o>,</span> <span class=s>&#34;access error&#34;</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=n>Integer</span> <span class=n>code</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=n>String</span> <span class=n>msg</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=nf>EnumCode</span><span class=o>(</span><span class=n>Integer</span> <span class=n>code</span><span class=o>,</span> <span class=n>String</span> <span class=n>msg</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=o>.</span><span class=na>code</span> <span class=o>=</span> <span class=n>code</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=o>.</span><span class=na>msg</span> <span class=o>=</span> <span class=n>msg</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=n>Integer</span> <span class=nf>getCode</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>code</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>setCode</span><span class=o>(</span><span class=n>Integer</span> <span class=n>code</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=o>.</span><span class=na>code</span> <span class=o>=</span> <span class=n>code</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=n>String</span> <span class=nf>getMsg</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>msg</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>setMsg</span><span class=o>(</span><span class=n>String</span> <span class=n>msg</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=o>.</span><span class=na>msg</span> <span class=o>=</span> <span class=n>msg</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=3返回类result>3、返回类Result</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kn>package</span> <span class=nn>com.example.springcs.utils</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>lombok.Data</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>java.io.Serializable</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nd>@Data</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>class</span> <span class=nc>Result</span> <span class=kd>implements</span> <span class=n>Serializable</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=n>Integer</span> <span class=n>code</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=n>String</span> <span class=n>msg</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=n>Object</span> <span class=n>data</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=nf>Result</span><span class=o>(</span><span class=n>EnumCode</span> <span class=n>enumErrorCode</span><span class=o>,</span> <span class=n>Object</span> <span class=n>data</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=o>.</span><span class=na>code</span> <span class=o>=</span> <span class=n>enumErrorCode</span><span class=o>.</span><span class=na>getCode</span><span class=o>();</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=o>.</span><span class=na>msg</span> <span class=o>=</span> <span class=n>enumErrorCode</span><span class=o>.</span><span class=na>getMsg</span><span class=o>();</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=o>.</span><span class=na>data</span> <span class=o>=</span> <span class=n>data</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kd>static</span> <span class=n>Result</span> <span class=nf>success</span><span class=o>(</span><span class=n>Object</span> <span class=n>data</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=k>new</span> <span class=n>Result</span><span class=o>(</span><span class=n>EnumCode</span><span class=o>.</span><span class=na>SUCCESS</span><span class=o>,</span> <span class=n>data</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kd>static</span> <span class=n>Result</span> <span class=nf>failure</span><span class=o>(</span><span class=n>EnumCode</span> <span class=n>enumErrorCode</span><span class=o>,</span> <span class=n>Object</span> <span class=n>data</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=k>new</span> <span class=n>Result</span><span class=o>(</span><span class=n>enumErrorCode</span><span class=o>,</span> <span class=n>data</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=4新建spring拦截器>4、新建Spring拦截器</h3><p>4.1、通过实现<strong>HandlerInterceptor</strong>接口将请求的url代码入下:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kn>package</span> <span class=nn>com.example.springcs.interceptor</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>com.example.springcs.annotation.ResponeResult</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.context.annotation.Configuration</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.stereotype.Component</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.web.method.HandlerMethod</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.web.servlet.HandlerInterceptor</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>javax.servlet.http.HttpServletRequest</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>javax.servlet.http.HttpServletResponse</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>java.lang.reflect.Method</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nd>@Component</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>class</span> <span class=nc>ResponseResultInterceptor</span> <span class=kd>implements</span> <span class=n>HandlerInterceptor</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kd>static</span> <span class=kd>final</span> <span class=n>String</span> <span class=n>RESPONSE_RESULT_ANN</span> <span class=o>=</span> <span class=s>&#34;RESPONSE-RESULT-ANN&#34;</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nd>@Override</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>boolean</span> <span class=nf>preHandle</span><span class=o>(</span><span class=n>HttpServletRequest</span> <span class=n>request</span><span class=o>,</span> <span class=n>HttpServletResponse</span> <span class=n>response</span><span class=o>,</span> <span class=n>Object</span> <span class=n>handler</span><span class=o>)</span> <span class=kd>throws</span> <span class=n>Exception</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>           <span class=c1>//请求方法
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>if</span> <span class=o>(</span><span class=n>handler</span> <span class=k>instanceof</span> <span class=n>HandlerMethod</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>            <span class=kd>final</span> <span class=n>HandlerMethod</span> <span class=n>handlerMethod</span> <span class=o>=</span> <span class=o>(</span><span class=n>HandlerMethod</span><span class=o>)</span> <span class=n>handler</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>            <span class=kd>final</span> <span class=n>Class</span><span class=o>&lt;?&gt;</span> <span class=n>clazz</span> <span class=o>=</span> <span class=n>handlerMethod</span><span class=o>.</span><span class=na>getBeanType</span><span class=o>();</span>
+</span></span><span class=line><span class=cl>            <span class=kd>final</span> <span class=n>Method</span> <span class=n>method</span> <span class=o>=</span> <span class=n>handlerMethod</span><span class=o>.</span><span class=na>getMethod</span><span class=o>();</span>
+</span></span><span class=line><span class=cl>             <span class=c1>//判断是否在类对象上加上注解
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>if</span> <span class=o>(</span><span class=n>clazz</span><span class=o>.</span><span class=na>isAnnotationPresent</span><span class=o>(</span><span class=n>ResponeResult</span><span class=o>.</span><span class=na>class</span><span class=o>))</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>                <span class=n>request</span><span class=o>.</span><span class=na>setAttribute</span><span class=o>(</span><span class=n>RESPONSE_RESULT_ANN</span><span class=o>,</span> <span class=n>clazz</span><span class=o>.</span><span class=na>getAnnotation</span><span class=o>(</span><span class=n>ResponeResult</span><span class=o>.</span><span class=na>class</span><span class=o>));</span>
+</span></span><span class=line><span class=cl>            <span class=o>}</span> <span class=k>else</span> <span class=k>if</span><span class=o>(</span><span class=n>method</span><span class=o>.</span><span class=na>isAnnotationPresent</span><span class=o>(</span><span class=n>ResponeResult</span><span class=o>.</span><span class=na>class</span><span class=o>))</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>                <span class=n>request</span><span class=o>.</span><span class=na>setAttribute</span><span class=o>(</span><span class=n>RESPONSE_RESULT_ANN</span><span class=o>,</span> <span class=n>method</span><span class=o>.</span><span class=na>getAnnotation</span><span class=o>(</span><span class=n>ResponeResult</span><span class=o>.</span><span class=na>class</span><span class=o>));</span>
+</span></span><span class=line><span class=cl>            <span class=o>}</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>true</span><span class=o>;</span>    
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>4.2、通过实现<strong>WebMvcConfigurer</strong>方法将所自己实现的<strong>ResponseResultInterceptor</strong>加入到Spring的拦截器中代码如下:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kn>package</span> <span class=nn>com.example.springcs.interceptor</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.context.annotation.Configuration</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.web.servlet.config.annotation.InterceptorRegistration</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.web.servlet.config.annotation.InterceptorRegistry</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.web.servlet.config.annotation.WebMvcConfigurer</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>javax.annotation.Resource</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nd>@Configuration</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>class</span> <span class=nc>InterceptorConfig</span> <span class=kd>implements</span> <span class=n>WebMvcConfigurer</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nd>@Resource</span>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=n>ResponseResultInterceptor</span> <span class=n>loginInterceptor</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 注册自定义拦截器
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span>
+</span></span><span class=line><span class=cl>    <span class=nd>@Override</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>addInterceptors</span><span class=o>(</span><span class=n>InterceptorRegistry</span> <span class=n>registry</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>InterceptorRegistration</span> <span class=n>interceptorRegistration</span> <span class=o>=</span> <span class=n>registry</span><span class=o>.</span><span class=na>addInterceptor</span><span class=o>(</span><span class=n>loginInterceptor</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//可以设置多个路径拦截，我设置的是拦截全部
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>interceptorRegistration</span><span class=o>.</span><span class=na>addPathPatterns</span><span class=o>(</span><span class=s>&#34;/**&#34;</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=5重写返回类>5、重写返回类</h3><p>下面代码就是判断是否需要返回值包装，如果需要就直接包装。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kn>package</span> <span class=nn>com.example.springcs.handler</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>com.example.springcs.annotation.ResponeResult</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>com.example.springcs.utils.Result</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.core.MethodParameter</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.http.MediaType</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.http.converter.HttpMessageConverter</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.http.server.ServerHttpRequest</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.http.server.ServerHttpResponse</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.web.bind.annotation.ControllerAdvice</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.web.context.request.RequestContextHolder</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.web.context.request.ServletRequestAttributes</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>javax.servlet.http.HttpServletRequest</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nd>@ControllerAdvice</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>class</span> <span class=nc>ResponseResultHandler</span> <span class=kd>implements</span> <span class=n>ResponseBodyAdvice</span><span class=o>&lt;</span><span class=n>Object</span><span class=o>&gt;</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kd>static</span> <span class=kd>final</span> <span class=n>String</span> <span class=n>RESPONSE_RESULT_ANN</span> <span class=o>=</span> <span class=s>&#34;RESPONSE-RESULT-ANN&#34;</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nd>@Override</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>boolean</span> <span class=nf>supports</span><span class=o>(</span><span class=n>MethodParameter</span> <span class=n>returnType</span><span class=o>,</span> <span class=n>Class</span><span class=o>&lt;?</span> <span class=kd>extends</span> <span class=n>HttpMessageConverter</span><span class=o>&lt;?&gt;&gt;</span> <span class=n>converterType</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>ServletRequestAttributes</span> <span class=n>sra</span> <span class=o>=</span> <span class=o>(</span><span class=n>ServletRequestAttributes</span><span class=o>)</span> <span class=n>RequestContextHolder</span><span class=o>.</span><span class=na>getRequestAttributes</span><span class=o>();</span>
+</span></span><span class=line><span class=cl>        <span class=n>HttpServletRequest</span> <span class=n>request</span> <span class=o>=</span> <span class=n>sra</span><span class=o>.</span><span class=na>getRequest</span><span class=o>();</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//判断请求是否有包装标记
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>ResponeResult</span> <span class=n>responeResult</span> <span class=o>=</span> <span class=o>(</span><span class=n>ResponeResult</span><span class=o>)</span> <span class=n>request</span><span class=o>.</span><span class=na>getAttribute</span><span class=o>(</span><span class=n>RESPONSE_RESULT_ANN</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>responeResult</span> <span class=o>!=</span> <span class=kc>null</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nd>@Override</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=n>Object</span> <span class=nf>beforeBodyWrite</span><span class=o>(</span><span class=n>Object</span> <span class=n>body</span><span class=o>,</span> <span class=n>MethodParameter</span> <span class=n>returnType</span><span class=o>,</span> <span class=n>MediaType</span> <span class=n>selectedContentType</span><span class=o>,</span> <span class=n>Class</span><span class=o>&lt;?</span> <span class=kd>extends</span> <span class=n>HttpMessageConverter</span><span class=o>&lt;?&gt;&gt;</span> <span class=n>selectedConverterType</span><span class=o>,</span> <span class=n>ServerHttpRequest</span> <span class=n>request</span><span class=o>,</span> <span class=n>ServerHttpResponse</span> <span class=n>response</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>Result</span><span class=o>.</span><span class=na>success</span><span class=o>(</span><span class=n>body</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=6写测试controller>6、写测试controller</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kn>package</span> <span class=nn>com.example.springcs.controller</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>com.example.springcs.annotation.ResponeResult</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.stereotype.Controller</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.web.bind.annotation.RequestMapping</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.web.bind.annotation.ResponseBody</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>org.springframework.web.bind.annotation.RestController</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nd>@RestController</span>
+</span></span><span class=line><span class=cl><span class=nd>@ResponeResult</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>class</span> <span class=nc>TestController</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nd>@RequestMapping</span><span class=o>(</span><span class=s>&#34;/test&#34;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>    <span class=nd>@ResponseBody</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>int</span> <span class=nf>test</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>1</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-contents--wrapper></aside><script src=//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js></script><h2><svg t="1617198994775" class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" p-id="5304" width="30" height="30"><path d="M374.408533 877.312C657.1776 877.312 1024 1052.868267 1024 769.706667 1024 486.528 794.769067 256.9728 512 256.9728S0 486.528.0 769.706667 91.639467 877.312 374.408533 877.312z" fill="#fff8f8" p-id="5305"/><path d="M865.8176 126.702933l-15.138133 74.811734-53.794134-42.0352zM218.922667 23.3984l-13.243734 65.450667-47.069866-36.770134z" fill="#eee9ff" p-id="5306"/><path d="M38.4 311.466667m-38.4.0a38.4 38.4.0 1076.8.0 38.4 38.4.0 10-76.8.0z" fill="#fff8e9" p-id="5307"/><path d="M512 86.306133m-25.6.0a25.6 25.6.0 1051.2.0 25.6 25.6.0 10-51.2.0z" fill="#ffe9e9" p-id="5308"/><path d="M998.4 460.8m-25.6.0a25.6 25.6.0 1051.2.0 25.6 25.6.0 10-51.2.0z" fill="#fff8e9" p-id="5309"/><path d="M119.466667 349.866667H640A59.733333 59.733333.0 01699.733333 409.6v296.576a49.024 49.024.0 01-49.024 49.024h-37.060266a25.6 25.6.0 00-19.6352 9.181867l-77.883734 93.124266a25.6 25.6.0 01-45.124266-13.994666l-6.186667-65.134934A25.6 25.6.0 00439.330133 755.2H119.466667a59.733333 59.733333.0 01-59.733334-59.733333V409.6a59.733333 59.733333.0 0159.733334-59.733333zm0 25.6A34.133333 34.133333.0 0085.333333 409.6v285.866667A34.133333 34.133333.0 00119.466667 729.6h319.863466a51.2 51.2.0 0150.9696 46.353067l6.1952 65.134933 77.8752-93.1328A51.2 51.2.0 01613.649067 729.6h37.060266A23.424 23.424.0 00674.133333 706.176V409.6A34.133333 34.133333.0 00640 375.466667H119.466667z" fill="#4c4c4c" p-id="5310"/><path d="M128 431.786667v143.36a12.8 12.8.0 0025.6.0v-143.36a12.8 12.8.0 00-25.6.0zm0 178.346666v25.6a12.8 12.8.0 0025.6.0v-25.6a12.8 12.8.0 00-25.6.0z" fill="#ebbcbc" p-id="5311"/><path d="M384 384h520.533333a59.733333 59.733333.0 0159.733334 59.733333v296.576a49.024 49.024.0 01-49.024 49.024H878.1824a25.6 25.6.0 00-19.6352 9.181867l-77.883733 93.124267A25.6 25.6.0 01735.5392 877.6448l-6.186667-65.134933a25.6 25.6.0 00-25.489066-23.176534H384A59.733333 59.733333.0 01324.266667 729.6V443.733333A59.733333 59.733333.0 01384 384z" fill="#99b1ea" p-id="5312"/><path d="M384 384h520.533333a59.733333 59.733333.0 0159.733334 59.733333v296.576a49.024 49.024.0 01-49.024 49.024H878.1824a25.6 25.6.0 00-19.6352 9.181867l-77.883733 93.124267A25.6 25.6.0 01735.5392 877.6448l-6.186667-65.134933a25.6 25.6.0 00-25.489066-23.176534H384A59.733333 59.733333.0 01324.266667 729.6V443.733333A59.733333 59.733333.0 01384 384zm0 25.6a34.133333 34.133333.0 00-34.133333 34.133333V729.6A34.133333 34.133333.0 00384 763.733333h319.863467a51.2 51.2.0 0150.9696 46.353067l6.1952 65.134933 77.8752-93.1328a51.2 51.2.0 0139.278933-18.3552h37.060267A23.424 23.424.0 00938.666667 740.309333v-296.576A34.133333 34.133333.0 00904.533333 409.6H384z" fill="#4c4c4c" p-id="5313"/><path d="M516.266667 674.133333a72.533333 72.533333.0 100-145.066666 72.533333 72.533333.0 000 145.066666zm0-25.6a46.933333 46.933333.0 110-93.866666 46.933333 46.933333.0 010 93.866666zm273.066666 25.6a72.533333 72.533333.0 100-145.066666 72.533333 72.533333.0 000 145.066666zm0-25.6a46.933333 46.933333.0 110-93.866666 46.933333 46.933333.0 010 93.866666z" fill="#4c4c4c" p-id="5314"/></svg>&nbsp;&nbsp;评论区</h2><div id=waline></div><script>new Waline({el:"#waline",path:location.pathname,placeholder:"撰写评论...",avatar:"robohash",meta:["nick","mail"],requiredFields:["nick","mail"],avatarCDN:"https://sdn.geekzu.org/avatar/",serverURL:"https://my-blog-cciy.vercel.app",uploadImage:function(t){const e=new FormData;return e.append("image",t),fetch("https://7bu.top/api/upload",{method:"POST",body:e}).then(e=>e.json()).then(e=>e.data.url)},lang:"zh-CN"})</script><footer class=site-footer><section class=copyright>&copy;
+2020 -
+2022 Double`C Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.3.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ul><li><ul><li><a href=#1注解类responeresult>1、注解类ResponeResult</a></li><li><a href=#2返回枚举的实现>2、返回枚举的实现</a></li><li><a href=#3返回类result>3、返回类Result</a></li><li><a href=#4新建spring拦截器>4、新建Spring拦截器</a></li><li><a href=#5重写返回类>5、重写返回类</a></li><li><a href=#6写测试controller>6、写测试controller</a></li></ul></li></ul></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
