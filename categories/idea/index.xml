@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>idea on Double`C Blog</title><link>https://cciy.github.io/categories/idea/</link><description>Recent content in idea on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 17 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/categories/idea/index.xml" rel="self" type="application/rss+xml"/><item><title>Idea实现javap工具反编译</title><link>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</link><pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</guid><description>通过Jdk的命令javap可以反编译查看字节码 step one
-step two
-按照如下图所示填写相关参数
-step three
-添加工具，分别设置program，argument等，其中arguments中是javap的参数，具体的参数信息可以去看下help信息 step four
-博客参考来源:
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>idea on Double`C Blog</title><link>https://cciy.github.io/categories/idea/</link><description>Recent content in idea on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 17 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/categories/idea/index.xml" rel="self" type="application/rss+xml"/><item><title>Idea实现javap工具反编译</title><link>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</link><pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</guid><description>通过Jdk的命令javap可以反编译查看字节码 step one step two 按照如下图所示填写相关参数
+step three 添加工具，分别设置program，argument等，其中arguments中是javap的参数，具体的参数信息可以去看下help信息 step four 博客参考来源:
 IDEA设置External Tools之Javap反编译字节码
 intellij idea中使用External Tool实现javap工具反编译</description></item><item><title>idea多次启动</title><link>https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/</link><pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/</guid><description>最新版的idea启动和老版启动不太一样
 step one 然后点击下图按钮
 step two 添加即可多次启动同一个 main 方法</description></item><item><title>IDEA快捷键For Windows</title><link>https://cciy.github.io/idea%E5%BF%AB%E6%8D%B7%E9%94%AEfor-windows/</link><pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%BF%AB%E6%8D%B7%E9%94%AEfor-windows/</guid><description>IDEA原始PDF文档查看 点击Idea顶部菜单栏中 Help -&amp;gt; Keymap Reference，后出现一个快捷键PDF文档。
 一、Editing编辑 代码补全
 快捷键 说明 使用频率 Ctrl + Space 基本的代码补全（类名、方法、变量） ★★ Ctrl + Shift + Space 代码智能补全（类名、方法、变量） ☆ Ctrl + Shift + Enter 智能结束代码 ☆ 显示查看
-快捷键 说明 使用频率 Ctrl + P 显示该方法的参数信息（光标放在被调用方法的圆括号内，然后按此快捷键） ★★★★ Ctrl + Q 代码智能补全（类名、方法、变量） ★ Shift + F1 显示外部文档 ☆ Ctrl +鼠标放在代码上 显示基本信息 ☆ Ctrl + F1 在错误或警告处显示描述信息 ☆ Alt + Q 显示上下文信息 ☆ 快速生成 / 提示</description></item></channel></rss>
+快捷键 说明 使用频率 Ctrl + P 显示该方法的参数信息（光标放在被调用方法的圆括号内，然后按此快捷键） ★★★★ Ctrl + Q 代码智能补全（类名、方法、变量） ★ Shift + F1 显示外部文档 ☆ Ctrl +鼠标放在代码上 显示基本信息 ☆ Ctrl + F1 在错误或警告处显示描述信息 ☆ Alt + Q 显示上下文信息 ☆ 快速生成 / 提示
+快捷键 说明 使用频率 Alt + Insert 生成代码（Getters, Setters, Constructors,hashCode/equals, toString） ★★★★ Ctrl + O 重写方法 ★ Ctrl + I 实现方法 ★ Ctrl + Alt + T 用xxx包围(if.</description></item></channel></rss>

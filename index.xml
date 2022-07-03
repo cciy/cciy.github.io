@@ -1,4 +1,97 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Double`C Blog</title><link>https://cciy.github.io/</link><description>Recent content on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>SpringBoot优雅的实现接口统一输出</title><link>https://cciy.github.io/springboot%E4%BC%98%E9%9B%85%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E7%BB%9F%E4%B8%80%E8%BE%93%E5%87%BA/</link><pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/springboot%E4%BC%98%E9%9B%85%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E7%BB%9F%E4%B8%80%E8%BE%93%E5%87%BA/</guid><description>&lt;h3 id="1注解类responeresult">1、注解类ResponeResult&lt;/h3>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Double`C Blog</title><link>https://cciy.github.io/</link><description>Recent content on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 02 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>SpringIoc</title><link>https://cciy.github.io/springioc/</link><pubDate>Sat, 02 Jul 2022 00:00:00 +0000</pubDate><guid>https://cciy.github.io/springioc/</guid><description>&lt;h2 id="新建spring项目">新建spring项目&lt;/h2>
+&lt;p>Idea 按如下操作：&lt;code>File&lt;/code> -&amp;gt; &lt;code>New&lt;/code> -&amp;gt; &lt;code>Project&lt;/code>
+&lt;figure style="flex-grow: 133; flex-basis: 320px">
+&lt;a href="https://cciy.github.io/springioc/img.png" data-size="800x600">&lt;img src="https://cciy.github.io/springioc/img.png"
+srcset="https://cciy.github.io/springioc/img_hu45893130eb6a915cb1295309935e374a_30503_480x0_resize_box_3.png 480w, https://cciy.github.io/springioc/img_hu45893130eb6a915cb1295309935e374a_30503_1024x0_resize_box_3.png 1024w"
+width="800"
+height="600"
+loading="lazy"
+alt="img.png">
+&lt;/a>
+&lt;figcaption>img.png&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>1、修改&lt;code>pom.xml&lt;/code>文件依赖包&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;project&lt;/span> &lt;span class="na">xmlns=&lt;/span>&lt;span class="s">&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">xmlns:xsi=&lt;/span>&lt;span class="s">&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">xsi:schemaLocation=&lt;/span>&lt;span class="s">&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;modelVersion&amp;gt;&lt;/span>4.0.0&lt;span class="nt">&amp;lt;/modelVersion&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>org.example&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>spring-geek-demo&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;packaging&amp;gt;&lt;/span>pom&lt;span class="nt">&amp;lt;/packaging&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>1.0-SNAPSHOT&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;modules&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;module&amp;gt;&lt;/span>spring-ioc&lt;span class="nt">&amp;lt;/module&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/modules&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;properties&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;maven.compiler.source&amp;gt;&lt;/span>8&lt;span class="nt">&amp;lt;/maven.compiler.source&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;maven.compiler.target&amp;gt;&lt;/span>8&lt;span class="nt">&amp;lt;/maven.compiler.target&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;spring.version&amp;gt;&lt;/span>5.2.2.RELEASE&lt;span class="nt">&amp;lt;/spring.version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/properties&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;dependencyManagement&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;dependencies&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>org.springframework&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>spring-context&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>${spring.version}&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/dependencies&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/dependencyManagement&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;dependencies&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>org.springframework&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>spring-context&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/dependencies&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/project&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>2、删除&lt;code>src&lt;/code>文件夹，新建&lt;code>Module&lt;/code> -&amp;gt; &lt;code>spring-ioc&lt;/code>修改&lt;strong>spring-ioc&lt;/strong>&lt;/p></description></item><item><title>SpringBoot优雅的实现接口统一输出</title><link>https://cciy.github.io/springboot%E4%BC%98%E9%9B%85%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E7%BB%9F%E4%B8%80%E8%BE%93%E5%87%BA/</link><pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/springboot%E4%BC%98%E9%9B%85%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E7%BB%9F%E4%B8%80%E8%BE%93%E5%87%BA/</guid><description>&lt;h3 id="1注解类responeresult">1、注解类ResponeResult&lt;/h3>
 &lt;p>如下代码实现注解ResponeResul&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -1913,15 +2006,15 @@ alt="Photo by Hudai Gayiran on Unsplash">
 &lt;p>X&lt;sup>n&lt;/sup> + Y&lt;sup>n&lt;/sup> = Z&lt;sup>n&lt;/sup>&lt;/p>
 &lt;p>Press &lt;kbd>&lt;kbd>CTRL&lt;/kbd>+&lt;kbd>ALT&lt;/kbd>+&lt;kbd>Delete&lt;/kbd>&lt;/kbd> to end the session.&lt;/p>
 &lt;p>Most &lt;mark>salamanders&lt;/mark> are nocturnal, and hunt for insects, worms, and other small creatures.&lt;/p>
-&lt;section class="footnotes" role="doc-endnotes">
+&lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
-&lt;li id="fn:1" role="doc-endnote">
+&lt;li id="fn:1">
 &lt;p>The above quote is excerpted from Rob Pike&amp;rsquo;s &lt;a class="link" href="https://www.youtube.com/watch?v=PAAkCSZUG1c" target="_blank" rel="noopener"
 >talk&lt;/a> during Gopherfest, November 18, 2015.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item><item><title>Placeholder Text</title><link>https://cciy.github.io/placeholder-text/</link><pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate><guid>https://cciy.github.io/placeholder-text/</guid><description>&lt;img src="https://cciy.github.io/placeholder-text/matt-le-SJSpo9hQf7s-unsplash.jpg" alt="Featured image of post Placeholder Text" />&lt;p>Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p>
+&lt;/div></description></item><item><title>Placeholder Text</title><link>https://cciy.github.io/placeholder-text/</link><pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate><guid>https://cciy.github.io/placeholder-text/</guid><description>&lt;img src="https://cciy.github.io/placeholder-text/matt-le-SJSpo9hQf7s-unsplash.jpg" alt="Featured image of post Placeholder Text" />&lt;p>Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p>
 &lt;p>Redit teque digerit hominumque toris verebor lumina non cervice subde tollit usus habet Arctonque, furores quas nec ferunt. Quoque montibus nunc caluere tempus inhospita parcite confusaque translucet patri vestro qui optatis lumine cognoscere flos nubis! Fronde ipsamque patulos Dryopen deorum.&lt;/p>
 &lt;ol>
 &lt;li>Exierant elisi ambit vivere dedere&lt;/li>

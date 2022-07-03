@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>博客修改 on Double`C Blog</title><link>https://cciy.github.io/categories/%E5%8D%9A%E5%AE%A2%E4%BF%AE%E6%94%B9/</link><description>Recent content in 博客修改 on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 07 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/categories/%E5%8D%9A%E5%AE%A2%E4%BF%AE%E6%94%B9/index.xml" rel="self" type="application/rss+xml"/><item><title>hugo修改代码块</title><link>https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/</link><pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/</guid><description>hugo官网Markdown和其他与标记相关的配置 根据hugo官网中Markdown设置代码块高亮的配置
 如图： Photo From Hugo 将其配置拷贝到你的hugo配置中
-1 2 3 4 5 6 7 8 9 10 11 12 13 markup:highlight:anchorLineNos:falsecodeFences:trueguessSyntax:falsehl_Lines:&amp;#34;&amp;#34;lineAnchors:&amp;#34;&amp;#34;lineNoStart:1#行从几开始lineNos:false#是否显示行列lineNumbersInTable:truenoClasses:truestyle:monokai #代码样式tabWidth:4 其中代码的样式可以通过style样式指定
+1 2 3 4 5 6 7 8 9 10 11 12 13 markup: highlight: anchorLineNos: false codeFences: true guessSyntax: false hl_Lines: &amp;#34;&amp;#34; lineAnchors: &amp;#34;&amp;#34; lineNoStart: 1 #行从几开始 lineNos: false #是否显示行列 lineNumbersInTable: true noClasses: true style: monokai #代码样式 tabWidth: 4 其中代码的样式可以通过style样式指定
 如想单独配置某一个代码块，可以按照官网例子如下配置：
-Photo From Hugo
-添加Cope按钮 1、定义按钮样式，将cope的css加入到custom.scss文件中：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .highlight-copy-btn { position: absolute; top: 7px; right: 7px; border: 0; border-radius: 4px; padding: 1px; font-size: 0.8em; line-height: 1.</description></item></channel></rss>
+Photo From Hugo 添加Cope按钮 1、定义按钮样式，将cope的css加入到custom.scss文件中：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .</description></item></channel></rss>
