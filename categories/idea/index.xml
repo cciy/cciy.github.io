@@ -1,10 +1,887 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>idea on Double`C Blog</title><link>https://cciy.github.io/categories/idea/</link><description>Recent content in idea on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 17 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/categories/idea/index.xml" rel="self" type="application/rss+xml"/><item><title>Idea实现javap工具反编译</title><link>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</link><pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</guid><description>通过Jdk的命令javap可以反编译查看字节码 step one step two 按照如下图所示填写相关参数
-step three 添加工具，分别设置program，argument等，其中arguments中是javap的参数，具体的参数信息可以去看下help信息 step four 博客参考来源:
-IDEA设置External Tools之Javap反编译字节码
-intellij idea中使用External Tool实现javap工具反编译</description></item><item><title>idea多次启动</title><link>https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/</link><pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/</guid><description>最新版的idea启动和老版启动不太一样
-step one 然后点击下图按钮
-step two 添加即可多次启动同一个 main 方法</description></item><item><title>IDEA快捷键For Windows</title><link>https://cciy.github.io/idea%E5%BF%AB%E6%8D%B7%E9%94%AEfor-windows/</link><pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%BF%AB%E6%8D%B7%E9%94%AEfor-windows/</guid><description>IDEA原始PDF文档查看 点击Idea顶部菜单栏中 Help -&amp;gt; Keymap Reference，后出现一个快捷键PDF文档。
-一、Editing编辑 代码补全
-快捷键 说明 使用频率 Ctrl + Space 基本的代码补全（类名、方法、变量） ★★ Ctrl + Shift + Space 代码智能补全（类名、方法、变量） ☆ Ctrl + Shift + Enter 智能结束代码 ☆ 显示查看
-快捷键 说明 使用频率 Ctrl + P 显示该方法的参数信息（光标放在被调用方法的圆括号内，然后按此快捷键） ★★★★ Ctrl + Q 代码智能补全（类名、方法、变量） ★ Shift + F1 显示外部文档 ☆ Ctrl +鼠标放在代码上 显示基本信息 ☆ Ctrl + F1 在错误或警告处显示描述信息 ☆ Alt + Q 显示上下文信息 ☆ 快速生成 / 提示
-快捷键 说明 使用频率 Alt + Insert 生成代码（Getters, Setters, Constructors,hashCode/equals, toString） ★★★★ Ctrl + O 重写方法 ★ Ctrl + I 实现方法 ★ Ctrl + Alt + T 用xxx包围(if.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>idea on Double`C Blog</title><link>https://cciy.github.io/categories/idea/</link><description>Recent content in idea on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 17 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/categories/idea/index.xml" rel="self" type="application/rss+xml"/><item><title>Idea实现javap工具反编译</title><link>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</link><pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</guid><description>&lt;h2 id="通过jdk的命令javap可以反编译查看字节码">通过Jdk的命令javap可以反编译查看字节码&lt;/h2>
+&lt;p>&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1.jpg"
+width="645"
+height="437"
+srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1_hu982970e3b7501ee9c3b0fd23c6ad271c_23856_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1_hu982970e3b7501ee9c3b0fd23c6ad271c_23856_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="step one"
+class="gallery-image"
+data-flex-grow="147"
+data-flex-basis="354px"
+>&lt;br>
+&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2.jpg"
+width="1040"
+height="852"
+srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2_hu380a0cd1a47aa8d65aacb2d961570720_47368_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2_hu380a0cd1a47aa8d65aacb2d961570720_47368_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="step two"
+class="gallery-image"
+data-flex-grow="122"
+data-flex-basis="292px"
+>&lt;br>
+按照如下图所示填写相关参数&lt;br>
+&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3.jpg"
+width="998"
+height="712"
+srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3_hub9419c9841c2bfe946cf6cb3c35a8590_43162_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3_hub9419c9841c2bfe946cf6cb3c35a8590_43162_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="step three"
+class="gallery-image"
+data-flex-grow="140"
+data-flex-basis="336px"
+>&lt;br>
+添加工具，分别设置program，argument等，其中arguments中是javap的参数，具体的参数信息可以去看下help信息
+&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4.jpg"
+width="667"
+height="428"
+srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4_hua11fa80cb2e92df9c007c721af94dd92_39569_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4_hua11fa80cb2e92df9c007c721af94dd92_39569_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="step four"
+class="gallery-image"
+data-flex-grow="155"
+data-flex-basis="374px"
+>&lt;/p>
+&lt;p>博客参考来源:&lt;br>
+  &lt;a class="link" href="https://www.cnblogs.com/alinainai/p/11723371.html" target="_blank" rel="noopener"
+>IDEA设置External Tools之Javap反编译字节码&lt;/a>&lt;br>
+  &lt;a class="link" href="https://www.cnblogs.com/QW-lzm/p/12643399.html" target="_blank" rel="noopener"
+>intellij idea中使用External Tool实现javap工具反编译&lt;/a>&lt;/p></description></item><item><title>idea多次启动</title><link>https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/</link><pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/</guid><description>&lt;p>最新版的idea启动和老版启动不太一样&lt;br>
+&lt;img src="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1.bmp"
+width="359"
+height="211"
+srcset="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1_hu8834c53d1dd409297d7eff9ca9cca1ee_303050_480x0_resize_box.bmp 480w, https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1_hu8834c53d1dd409297d7eff9ca9cca1ee_303050_1024x0_resize_box.bmp 1024w"
+loading="lazy"
+alt="step one"
+class="gallery-image"
+data-flex-grow="170"
+data-flex-basis="408px"
+>
+然后点击下图按钮&lt;br>
+&lt;img src="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2.bmp"
+width="1329"
+height="704"
+srcset="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2_hu071dbc097ab6ffc738be43d697789963_3742518_480x0_resize_box.bmp 480w, https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2_hu071dbc097ab6ffc738be43d697789963_3742518_1024x0_resize_box.bmp 1024w"
+loading="lazy"
+alt="step two"
+class="gallery-image"
+data-flex-grow="188"
+data-flex-basis="453px"
+>
+添加即可多次启动同一个 main 方法&lt;/p></description></item><item><title>IDEA快捷键For Windows</title><link>https://cciy.github.io/idea%E5%BF%AB%E6%8D%B7%E9%94%AEfor-windows/</link><pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%BF%AB%E6%8D%B7%E9%94%AEfor-windows/</guid><description>&lt;h2 id="idea原始pdf文档查看">IDEA原始PDF文档查看&lt;/h2>
+&lt;p>点击Idea顶部菜单栏中 &lt;strong>&lt;font color='red'>Help&lt;/font>&lt;/strong> -&amp;gt; &lt;strong>&lt;font color='red'>Keymap Reference&lt;/font>&lt;/strong>，后出现一个快捷键PDF文档。&lt;/p>
+&lt;h3 id="一editing编辑">一、Editing编辑&lt;/h3>
+&lt;p>&lt;strong>代码补全&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ctrl + Space&lt;/td>
+&lt;td>基本的代码补全（类名、方法、变量）&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + Space&lt;/td>
+&lt;td>代码智能补全（类名、方法、变量）&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + Enter&lt;/td>
+&lt;td>智能结束代码&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>显示查看&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ctrl + P&lt;/td>
+&lt;td>显示该方法的参数信息（光标放在被调用方法的圆括号内，然后按此快捷键）&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Q&lt;/td>
+&lt;td>代码智能补全（类名、方法、变量）&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shift + F1&lt;/td>
+&lt;td>显示外部文档&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl +鼠标放在代码上&lt;/td>
+&lt;td>显示基本信息&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + F1&lt;/td>
+&lt;td>在&lt;font color='red'>错误&lt;/font>或&lt;font color='red'>警告&lt;/font>处显示描述信息&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + Q&lt;/td>
+&lt;td>显示上下文信息&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>快速生成 / 提示&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Alt + Insert&lt;/td>
+&lt;td>生成代码（Getters, Setters, Constructors,hashCode/equals, toString）&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + O&lt;/td>
+&lt;td>重写方法&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + I&lt;/td>
+&lt;td>实现方法&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + T&lt;/td>
+&lt;td>用xxx包围(if..else,try..catch, for,synchronized, 等)&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + /&lt;/td>
+&lt;td>注释/取消注释，行注释&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + /&lt;/td>
+&lt;td>注释/取消注释，块注释&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + W&lt;/td>
+&lt;td>依次递增选中代码块&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + W&lt;/td>
+&lt;td>减少当前选中的代码块&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + Enter&lt;/td>
+&lt;td>&lt;font color='red'>显示意向动作&lt;/font>和&lt;font color='red'>快速修复代码&lt;/font>&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>优化（格式化，去除多余，优化import）&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ctrl + Alt + L&lt;/td>
+&lt;td>格式化代码&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + O&lt;/td>
+&lt;td>优化 import&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + I&lt;/td>
+&lt;td>自动缩进行&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tab / Shift + Tab&lt;/td>
+&lt;td>缩进 / 反缩进 选中的代码&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>剪切、复制、粘贴、删除&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ctrl+X/Shift+Delete&lt;/td>
+&lt;td>剪切&lt;font color='red'>当前行&lt;/font>或&lt;font color='red'>选定的块&lt;/font>到剪贴板&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl+C/Ctrl+Insert&lt;/td>
+&lt;td>复制&lt;font color='red'>当前行&lt;/font>或&lt;font color='red'>选定的块&lt;/font>到剪贴板&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl+V/Shift+Insert&lt;/td>
+&lt;td>从最新&lt;font color='red'>剪贴板&lt;/font>粘贴&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl+ Shift + V&lt;/td>
+&lt;td>选择剪切板最近100条的内容&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + D&lt;/td>
+&lt;td>复制粘贴&lt;font color='red'>当前行&lt;/font>或&lt;font color='red'>选定的块&lt;/font>&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Y&lt;/td>
+&lt;td>删除&lt;font color='red'>当前行&lt;/font>或&lt;font color='red'>选定的块&lt;/font>&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Delete&lt;/td>
+&lt;td>删除到单词的&lt;font color='red'>末尾&lt;/font>&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Backspace&lt;/td>
+&lt;td>删除到单词的&lt;font color='red'>开头&lt;/font>&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>普通edit操作&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Shift + Enter&lt;/td>
+&lt;td>开始新的一行&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + U&lt;/td>
+&lt;td>字母大小写切换&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + ] / [&lt;/td>
+&lt;td>选择直到代码块&lt;font color='red'>结束&lt;/font>/&lt;font color='red'>开始&lt;/font>&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Enter&lt;/td>
+&lt;td>将代码拆分行&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + &lt;font color='red'>+&lt;/font>/&lt;font color='red'>-&lt;/font>&lt;/td>
+&lt;td>&lt;font color='red'>展开&lt;/font>/ &lt;font color='red'>折叠&lt;/font>代码块&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + F4&lt;/td>
+&lt;td>关闭活动的编辑器(editor)选项卡&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="二searchreplace-搜索--替换">二、Search/Replace （搜索 / 替换）&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>双击Shift&lt;/td>
+&lt;td>查询任何东西(包括文件夹、文件以及字符串)&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + F&lt;/td>
+&lt;td>在当前编辑器里面查询字符串&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + F&lt;/td>
+&lt;td>查找该项目中所有字符串&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>F3&lt;/td>
+&lt;td>查询下一个&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shift + F3&lt;/td>
+&lt;td>查询上一个&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + R&lt;/td>
+&lt;td>替换当前窗口的的字符串&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + R&lt;/td>
+&lt;td>替换当前窗口的的字符串&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="三usage-search-使用点查询即哪儿使用了这个类方法变量">三、Usage Search （使用点查询，即哪儿使用了这个类/方法/变量）&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Alt + F7&lt;/td>
+&lt;td>全局查找使用地点&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + F7/Ctrl + Shift + F7&lt;/td>
+&lt;td>在文件中查找使用地点/在文件中高亮显示使用地点&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + F7&lt;/td>
+&lt;td>显示使用地点&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="四compile-and-run-编译和运行">四、Compile and Run （编译和运行）&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ctrl + F9&lt;/td>
+&lt;td>编译项目(编译修改和依赖)&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + F9&lt;/td>
+&lt;td>编译选择的文件、包或模块&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + Shift + F10&lt;/td>
+&lt;td>选择配置并run&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + Shift + F9&lt;/td>
+&lt;td>选择配置并Debug&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shift + F10&lt;/td>
+&lt;td>run&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shift + F9&lt;/td>
+&lt;td>Debug&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + F10&lt;/td>
+&lt;td>从编辑器运行上下文配置&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="五debugging-调试">五、Debugging （调试）&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>F8&lt;/td>
+&lt;td>下一步&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>F7&lt;/td>
+&lt;td>进入方法内部&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shift + F8&lt;/td>
+&lt;td>跳出这个方法&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + F9&lt;/td>
+&lt;td>运行到光标处（如果光标前有其他断点会进入到该断点）&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + F8&lt;/td>
+&lt;td>计算表达式（可以更改变量值使其生效）&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>F9&lt;/td>
+&lt;td>恢复程序运行（如果该断点下面代码还有断点则停在下一个断点上）&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + F8&lt;/td>
+&lt;td>切换断点（若光标当前行有断点则取消断点，没有则加上断点）&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + F8&lt;/td>
+&lt;td>查看断点列表&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shift + F7&lt;/td>
+&lt;td>智能步入（断点所在行上有多个方法调用，会弹出进入哪个方法）&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="六navigation-导航">六、Navigation （导航）&lt;/h3>
+&lt;p>&lt;strong>跳转&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ctrl + N&lt;/td>
+&lt;td>搜索指定类并可以点击跳转&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + N&lt;/td>
+&lt;td>搜索指定文件并可以点击跳转&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + Shift + N&lt;/td>
+&lt;td>搜索指定文件目标（变量 / 方法）并可以点击跳转&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + G&lt;/td>
+&lt;td>跳转到指定行&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + U&lt;/td>
+&lt;td>跳转到父类/ 接口的对应处&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + B&lt;/td>
+&lt;td>跳转到当前类的类处&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + Left/Right&lt;/td>
+&lt;td>跳转到上一次 / 下一次操作处&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + Backspace&lt;/td>
+&lt;td>跳转到最后一次编辑处&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + Up/Down&lt;/td>
+&lt;td>跳转到上一个 / 下一个方法名处&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>F2 / Shift + F2&lt;/td>
+&lt;td>跳转到下一个 / 上一个高亮错误处&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + [ / ]&lt;/td>
+&lt;td>跳转到当前所在代码块花括号开始 / 结束处&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>弹出&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ctrl + E&lt;/td>
+&lt;td>弹出最近打开的文件列表&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + F12&lt;/td>
+&lt;td>弹出文件结构，类似eclipse的outline&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + H&lt;/td>
+&lt;td>弹出类的层次结构（即父类、子类）&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + H&lt;/td>
+&lt;td>弹出方法层次结构&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + H&lt;/td>
+&lt;td>弹出调用层次（哪些类调用了此处）&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + I&lt;/td>
+&lt;td>弹出方法 / 变量定义预览&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>窗口&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Alt + F1&lt;/td>
+&lt;td>选择文件变量或者视图&lt;/td>
+&lt;td>★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>F12&lt;/td>
+&lt;td>返回到前一个工具窗口&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Esc&lt;/td>
+&lt;td>跳转到代码编辑窗口（从工具窗口）&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shift + Esc&lt;/td>
+&lt;td>隐藏活动窗口或上次活动窗口&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + Right/Left&lt;/td>
+&lt;td>在打开的编辑tab页（即.java文件）之间切换&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift +F4&lt;/td>
+&lt;td>关闭活动的 run/messages/find/&amp;hellip; tab页&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>F4 / Ctrl + Enter&lt;/td>
+&lt;td>编辑 / 查看源代码&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + Home&lt;/td>
+&lt;td>显示导航条&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>书签&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>F11&lt;/td>
+&lt;td>选中文件/文件夹/代码行，添加/取消书签&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + F11&lt;/td>
+&lt;td>选中文件/文件夹/代码行，用助记符切换书签&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + #[0-9]&lt;/td>
+&lt;td>跳转到对应数值的书签处&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shift + F11&lt;/td>
+&lt;td>显示所有书签&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="七refactoring重构">七、Refactoring（重构）###&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>F5&lt;/td>
+&lt;td>复制&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>F6&lt;/td>
+&lt;td>移动&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + Delete&lt;/td>
+&lt;td>安全删除&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shift + F6&lt;/td>
+&lt;td>重命名&lt;/td>
+&lt;td>★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + F6&lt;/td>
+&lt;td>更改签名&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + N&lt;/td>
+&lt;td>一致性&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + M&lt;/td>
+&lt;td>将选中的代码抽取为方法&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + V&lt;/td>
+&lt;td>将选中的代码抽取为变量&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + F&lt;/td>
+&lt;td>将选中的代码抽取为字段&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + C&lt;/td>
+&lt;td>将选中的代码抽取为常量&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + P&lt;/td>
+&lt;td>将选中的代码抽取为参数&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="八vcslocal-history版本控制本地历史记录">八、VCS/Local History（版本控制/本地历史记录）###&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ctrl + K&lt;/td>
+&lt;td>提交代码到版本控制器&lt;/td>
+&lt;td>★★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + T&lt;/td>
+&lt;td>从版本控制器更新代码&lt;/td>
+&lt;td>★★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + Shift + C&lt;/td>
+&lt;td>查看最近的变更记录&lt;/td>
+&lt;td>★★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + `(数字键1旁边的反引号)&lt;/td>
+&lt;td>快速弹出版本控制器操作面板&lt;/td>
+&lt;td>★★★★★&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="九live-templates动态代码模板">九、Live Templates（动态代码模板）&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Ctrl + Alt + J&lt;/td>
+&lt;td>将选定的代码使用动态模板包住&lt;/td>
+&lt;td>★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + J&lt;/td>
+&lt;td>插入代码模板&lt;/td>
+&lt;td>★★&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="十general通用">十、General（通用）&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>快捷键&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Alt + #[0-9]&lt;/td>
+&lt;td>打开相应编号的工具窗口&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + S&lt;/td>
+&lt;td>保存所有&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + Y&lt;/td>
+&lt;td>同步、刷新&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + F12&lt;/td>
+&lt;td>切换最大化编辑器&lt;/td>
+&lt;td>★★★★★&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + Shift + F&lt;/td>
+&lt;td>添加到收藏夹&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alt + Shift + I&lt;/td>
+&lt;td>使用当前配置审查当前文件（代码审查）&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + BackQuote (`，数字键1旁边的反引号)&lt;/td>
+&lt;td>快速切换当前的scheme（切换主题、代码样式等）&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + S&lt;/td>
+&lt;td>打开IDEA系统设置窗口&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Alt + Shift + S&lt;/td>
+&lt;td>打开项目结构对话框&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Shift + A&lt;/td>
+&lt;td>查找动作&lt;/td>
+&lt;td>☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ctrl + Tab&lt;/td>
+&lt;td>编辑窗口标签和工具窗口之间切换（切换器，不同的地方效果不同）&lt;/td>
+&lt;td>★★★★★&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>博客参考来源:
+&lt;a class="link" href="https://www.jianshu.com/p/043670913610" target="_blank" rel="noopener"
+>IDEA快捷键For Windows&lt;/a>&lt;/p></description></item></channel></rss>

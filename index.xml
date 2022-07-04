@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Double`C Blog</title><link>https://cciy.github.io/</link><description>Recent content on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 02 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>SpringIoc</title><link>https://cciy.github.io/springioc/</link><pubDate>Sat, 02 Jul 2022 00:00:00 +0000</pubDate><guid>https://cciy.github.io/springioc/</guid><description>&lt;h2 id="新建spring项目">新建spring项目&lt;/h2>
 &lt;p>Idea 按如下操作：&lt;code>File&lt;/code> -&amp;gt; &lt;code>New&lt;/code> -&amp;gt; &lt;code>Project&lt;/code>
-&lt;figure style="flex-grow: 133; flex-basis: 320px">
-&lt;a href="https://cciy.github.io/springioc/img.png" data-size="800x600">&lt;img src="https://cciy.github.io/springioc/img.png"
-srcset="https://cciy.github.io/springioc/img_hu45893130eb6a915cb1295309935e374a_30503_480x0_resize_box_3.png 480w, https://cciy.github.io/springioc/img_hu45893130eb6a915cb1295309935e374a_30503_1024x0_resize_box_3.png 1024w"
+&lt;img src="https://cciy.github.io/springioc/img.png"
 width="800"
 height="600"
+srcset="https://cciy.github.io/springioc/img_hu45893130eb6a915cb1295309935e374a_30503_480x0_resize_box_3.png 480w, https://cciy.github.io/springioc/img_hu45893130eb6a915cb1295309935e374a_30503_1024x0_resize_box_3.png 1024w"
 loading="lazy"
-alt="img.png">
-&lt;/a>
-&lt;figcaption>img.png&lt;/figcaption>
-&lt;/figure>&lt;/p>
+alt="img.png"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
 &lt;p>1、修改&lt;code>pom.xml&lt;/code>文件依赖包&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -556,100 +556,100 @@ alt="img.png">
 &lt;h2 id="解决方法">解决方法&lt;/h2>
 &lt;p>在&lt;a class="link" href="https://www.mongodb.com/try/download/database-tools" target="_blank" rel="noopener"
 >官网自行下载&lt;/a>对应的Tools工具,然后解压放到MongoDB的安装目录下面，再配置环境就可以直接在windows下使用mongodump和mongorestore
-&lt;figure style="flex-grow: 251; flex-basis: 603px">
-&lt;a href="https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/MongoDB.jpg" data-size="1837x731">&lt;img src="https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/MongoDB.jpg"
-srcset="https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/MongoDB_huab4c776412b15b847c9d7de09a57dc62_56764_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/MongoDB_huab4c776412b15b847c9d7de09a57dc62_56764_1024x0_resize_q75_box.jpg 1024w"
+&lt;img src="https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/MongoDB.jpg"
 width="1837"
 height="731"
+srcset="https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/MongoDB_huab4c776412b15b847c9d7de09a57dc62_56764_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/mongodb%E6%B2%A1%E6%9C%89mongodump%E5%92%8Cmongorestore%E5%91%BD%E4%BB%A4/MongoDB_huab4c776412b15b847c9d7de09a57dc62_56764_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
->
-&lt;/a>
-&lt;/figure>&lt;/p>
+class="gallery-image"
+data-flex-grow="251"
+data-flex-basis="603px"
+>&lt;/p>
 &lt;p>博客参考来源:&lt;br>
   &lt;a class="link" href="https://blog.csdn.net/bidang3275/article/details/115052010" target="_blank" rel="noopener"
 >mongoDB4.4版本没有mongodump和mongorestore命令&lt;/a>&lt;/p></description></item><item><title>Idea实现javap工具反编译</title><link>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</link><pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/</guid><description>&lt;h2 id="通过jdk的命令javap可以反编译查看字节码">通过Jdk的命令javap可以反编译查看字节码&lt;/h2>
-&lt;p>&lt;figure style="flex-grow: 147; flex-basis: 354px">
-&lt;a href="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1.jpg" data-size="645x437">&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1.jpg"
-srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1_hu982970e3b7501ee9c3b0fd23c6ad271c_23856_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1_hu982970e3b7501ee9c3b0fd23c6ad271c_23856_1024x0_resize_q75_box.jpg 1024w"
+&lt;p>&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1.jpg"
 width="645"
 height="437"
+srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1_hu982970e3b7501ee9c3b0fd23c6ad271c_23856_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step1_hu982970e3b7501ee9c3b0fd23c6ad271c_23856_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="step one">
-&lt;/a>
-&lt;figcaption>step one&lt;/figcaption>
-&lt;/figure>&lt;br>
-&lt;figure style="flex-grow: 122; flex-basis: 292px">
-&lt;a href="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2.jpg" data-size="1040x852">&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2.jpg"
-srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2_hu380a0cd1a47aa8d65aacb2d961570720_47368_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2_hu380a0cd1a47aa8d65aacb2d961570720_47368_1024x0_resize_q75_box.jpg 1024w"
+alt="step one"
+class="gallery-image"
+data-flex-grow="147"
+data-flex-basis="354px"
+>&lt;br>
+&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2.jpg"
 width="1040"
 height="852"
+srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2_hu380a0cd1a47aa8d65aacb2d961570720_47368_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step2_hu380a0cd1a47aa8d65aacb2d961570720_47368_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="step two">
-&lt;/a>
-&lt;figcaption>step two&lt;/figcaption>
-&lt;/figure>&lt;br>
+alt="step two"
+class="gallery-image"
+data-flex-grow="122"
+data-flex-basis="292px"
+>&lt;br>
 按照如下图所示填写相关参数&lt;br>
-&lt;figure style="flex-grow: 140; flex-basis: 336px">
-&lt;a href="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3.jpg" data-size="998x712">&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3.jpg"
-srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3_hub9419c9841c2bfe946cf6cb3c35a8590_43162_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3_hub9419c9841c2bfe946cf6cb3c35a8590_43162_1024x0_resize_q75_box.jpg 1024w"
+&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3.jpg"
 width="998"
 height="712"
+srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3_hub9419c9841c2bfe946cf6cb3c35a8590_43162_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step3_hub9419c9841c2bfe946cf6cb3c35a8590_43162_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="step three">
-&lt;/a>
-&lt;figcaption>step three&lt;/figcaption>
-&lt;/figure>&lt;br>
+alt="step three"
+class="gallery-image"
+data-flex-grow="140"
+data-flex-basis="336px"
+>&lt;br>
 添加工具，分别设置program，argument等，其中arguments中是javap的参数，具体的参数信息可以去看下help信息
-&lt;figure style="flex-grow: 155; flex-basis: 374px">
-&lt;a href="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4.jpg" data-size="667x428">&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4.jpg"
-srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4_hua11fa80cb2e92df9c007c721af94dd92_39569_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4_hua11fa80cb2e92df9c007c721af94dd92_39569_1024x0_resize_q75_box.jpg 1024w"
+&lt;img src="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4.jpg"
 width="667"
 height="428"
+srcset="https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4_hua11fa80cb2e92df9c007c721af94dd92_39569_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/idea%E5%AE%9E%E7%8E%B0javap%E5%B7%A5%E5%85%B7%E5%8F%8D%E7%BC%96%E8%AF%91/step4_hua11fa80cb2e92df9c007c721af94dd92_39569_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="step four">
-&lt;/a>
-&lt;figcaption>step four&lt;/figcaption>
-&lt;/figure>&lt;/p>
+alt="step four"
+class="gallery-image"
+data-flex-grow="155"
+data-flex-basis="374px"
+>&lt;/p>
 &lt;p>博客参考来源:&lt;br>
   &lt;a class="link" href="https://www.cnblogs.com/alinainai/p/11723371.html" target="_blank" rel="noopener"
 >IDEA设置External Tools之Javap反编译字节码&lt;/a>&lt;br>
   &lt;a class="link" href="https://www.cnblogs.com/QW-lzm/p/12643399.html" target="_blank" rel="noopener"
 >intellij idea中使用External Tool实现javap工具反编译&lt;/a>&lt;/p></description></item><item><title>idea多次启动</title><link>https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/</link><pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/</guid><description>&lt;p>最新版的idea启动和老版启动不太一样&lt;br>
-&lt;figure style="flex-grow: 170; flex-basis: 408px">
-&lt;a href="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1.bmp" data-size="359x211">&lt;img src="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1.bmp"
-srcset="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1_hu8834c53d1dd409297d7eff9ca9cca1ee_303050_480x0_resize_box.bmp 480w, https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1_hu8834c53d1dd409297d7eff9ca9cca1ee_303050_1024x0_resize_box.bmp 1024w"
+&lt;img src="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1.bmp"
 width="359"
 height="211"
+srcset="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1_hu8834c53d1dd409297d7eff9ca9cca1ee_303050_480x0_resize_box.bmp 480w, https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step1_hu8834c53d1dd409297d7eff9ca9cca1ee_303050_1024x0_resize_box.bmp 1024w"
 loading="lazy"
-alt="step one">
-&lt;/a>
-&lt;figcaption>step one&lt;/figcaption>
-&lt;/figure>
+alt="step one"
+class="gallery-image"
+data-flex-grow="170"
+data-flex-basis="408px"
+>
 然后点击下图按钮&lt;br>
-&lt;figure style="flex-grow: 188; flex-basis: 453px">
-&lt;a href="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2.bmp" data-size="1329x704">&lt;img src="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2.bmp"
-srcset="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2_hu071dbc097ab6ffc738be43d697789963_3742518_480x0_resize_box.bmp 480w, https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2_hu071dbc097ab6ffc738be43d697789963_3742518_1024x0_resize_box.bmp 1024w"
+&lt;img src="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2.bmp"
 width="1329"
 height="704"
+srcset="https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2_hu071dbc097ab6ffc738be43d697789963_3742518_480x0_resize_box.bmp 480w, https://cciy.github.io/idea%E5%A4%9A%E6%AC%A1%E5%90%AF%E5%8A%A8/Step2_hu071dbc097ab6ffc738be43d697789963_3742518_1024x0_resize_box.bmp 1024w"
 loading="lazy"
-alt="step two">
-&lt;/a>
-&lt;figcaption>step two&lt;/figcaption>
-&lt;/figure>
+alt="step two"
+class="gallery-image"
+data-flex-grow="188"
+data-flex-basis="453px"
+>
 添加即可多次启动同一个 main 方法&lt;/p></description></item><item><title>hugo修改代码块</title><link>https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/</link><pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate><guid>https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/</guid><description>&lt;h2 id="hugo官网markdown和其他与标记相关的配置">hugo官网Markdown和其他与标记相关的配置&lt;/h2>
 &lt;p>根据hugo官网中Markdown设置&lt;a class="link" href="https://gohugo.io/getting-started/configuration-markup/#highlight" target="_blank" rel="noopener"
 >代码块高亮的配置&lt;/a>&lt;br>
 如图：
-&lt;figure style="flex-grow: 103; flex-basis: 248px">
-&lt;a href="https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/highlight.bmp" data-size="789x762">&lt;img src="https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/highlight.bmp"
-srcset="https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/highlight_huac9bdf425b35a901344354ff64109f36_2404926_480x0_resize_box.bmp 480w, https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/highlight_huac9bdf425b35a901344354ff64109f36_2404926_1024x0_resize_box.bmp 1024w"
+&lt;img src="https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/highlight.bmp"
 width="789"
 height="762"
+srcset="https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/highlight_huac9bdf425b35a901344354ff64109f36_2404926_480x0_resize_box.bmp 480w, https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/highlight_huac9bdf425b35a901344354ff64109f36_2404926_1024x0_resize_box.bmp 1024w"
 loading="lazy"
-alt="Photo From Hugo">
-&lt;/a>
-&lt;figcaption>Photo From Hugo&lt;/figcaption>
-&lt;/figure>
+alt="Photo From Hugo"
+class="gallery-image"
+data-flex-grow="103"
+data-flex-basis="248px"
+>
 将其配置拷贝到你的hugo配置中&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -686,16 +686,16 @@ alt="Photo From Hugo">
 &lt;/div>&lt;p>其中代码的样式可以通过&lt;a class="link" href="https://xyproto.github.io/splash/docs/all.html" target="_blank" rel="noopener"
 >style样式&lt;/a>指定&lt;br>
 如想单独配置某一个代码块，可以按照官网例子如下配置：&lt;br>
-&lt;figure style="flex-grow: 98; flex-basis: 237px">
-&lt;a href="https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/shortcode.bmp" data-size="845x854">&lt;img src="https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/shortcode.bmp"
-srcset="https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/shortcode_hu2c1be87915d93454a5f0ea28715ee4b0_2886574_480x0_resize_box.bmp 480w, https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/shortcode_hu2c1be87915d93454a5f0ea28715ee4b0_2886574_1024x0_resize_box.bmp 1024w"
+&lt;img src="https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/shortcode.bmp"
 width="845"
 height="854"
+srcset="https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/shortcode_hu2c1be87915d93454a5f0ea28715ee4b0_2886574_480x0_resize_box.bmp 480w, https://cciy.github.io/hugo%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97/shortcode_hu2c1be87915d93454a5f0ea28715ee4b0_2886574_1024x0_resize_box.bmp 1024w"
 loading="lazy"
-alt="Photo From Hugo">
-&lt;/a>
-&lt;figcaption>Photo From Hugo&lt;/figcaption>
-&lt;/figure>&lt;/p>
+alt="Photo From Hugo"
+class="gallery-image"
+data-flex-grow="98"
+data-flex-basis="237px"
+>&lt;/p>
 &lt;h2 id="添加cope按钮">添加Cope按钮&lt;/h2>
 &lt;p>&lt;strong>1、定义按钮样式，将cope的css加入到&lt;code>custom.scss&lt;/code>文件中&lt;/strong>：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -1792,44 +1792,44 @@ Hugo的官方文档写的非常好，部署简洁。前两者部署时需要安�
 >最暖的憂傷 - 田馥甄&lt;/a>&lt;/em>&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="图片">图片&lt;/h2>
-&lt;p>&lt;figure style="flex-grow: 66; flex-basis: 160px">
-&lt;a href="https://cciy.github.io/test-chinese/florian-klauer-nptLmg6jqDo-unsplash.jpg" data-size="667x1000">&lt;img src="https://cciy.github.io/test-chinese/florian-klauer-nptLmg6jqDo-unsplash.jpg"
-srcset="https://cciy.github.io/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu595aaf3b3dbbb41af5aed8d3958cc9f9_13854_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu595aaf3b3dbbb41af5aed8d3958cc9f9_13854_1024x0_resize_q75_box.jpg 1024w"
+&lt;p>&lt;img src="https://cciy.github.io/test-chinese/florian-klauer-nptLmg6jqDo-unsplash.jpg"
 width="667"
 height="1000"
+srcset="https://cciy.github.io/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu595aaf3b3dbbb41af5aed8d3958cc9f9_13854_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu595aaf3b3dbbb41af5aed8d3958cc9f9_13854_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="Photo by Florian Klauer on Unsplash">
-&lt;/a>
-&lt;figcaption>Photo by Florian Klauer on Unsplash&lt;/figcaption>
-&lt;/figure> &lt;figure style="flex-grow: 149; flex-basis: 359px">
-&lt;a href="https://cciy.github.io/test-chinese/luca-bravo-alS7ewQ41M8-unsplash.jpg" data-size="1000x667">&lt;img src="https://cciy.github.io/test-chinese/luca-bravo-alS7ewQ41M8-unsplash.jpg"
-srcset="https://cciy.github.io/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu0a3f1163de68d0b9471979ebf0ecf11e_32400_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu0a3f1163de68d0b9471979ebf0ecf11e_32400_1024x0_resize_q75_box.jpg 1024w"
+alt="Photo by Florian Klauer on Unsplash"
+class="gallery-image"
+data-flex-grow="66"
+data-flex-basis="160px"
+> &lt;img src="https://cciy.github.io/test-chinese/luca-bravo-alS7ewQ41M8-unsplash.jpg"
 width="1000"
 height="667"
+srcset="https://cciy.github.io/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu0a3f1163de68d0b9471979ebf0ecf11e_32400_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu0a3f1163de68d0b9471979ebf0ecf11e_32400_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="Photo by Luca Bravo on Unsplash">
-&lt;/a>
-&lt;figcaption>Photo by Luca Bravo on Unsplash&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure style="flex-grow: 133; flex-basis: 320px">
-&lt;a href="https://cciy.github.io/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg" data-size="1000x750">&lt;img src="https://cciy.github.io/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg"
-srcset="https://cciy.github.io/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu45a5e3ad5e058da6a00650ed8fd40bea_15530_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu45a5e3ad5e058da6a00650ed8fd40bea_15530_1024x0_resize_q75_box.jpg 1024w"
+alt="Photo by Luca Bravo on Unsplash"
+class="gallery-image"
+data-flex-grow="149"
+data-flex-basis="359px"
+>&lt;/p>
+&lt;p>&lt;img src="https://cciy.github.io/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg"
 width="1000"
 height="750"
+srcset="https://cciy.github.io/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu45a5e3ad5e058da6a00650ed8fd40bea_15530_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu45a5e3ad5e058da6a00650ed8fd40bea_15530_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="Photo by Helena Hertz on Unsplash">
-&lt;/a>
-&lt;figcaption>Photo by Helena Hertz on Unsplash&lt;/figcaption>
-&lt;/figure> &lt;figure style="flex-grow: 66; flex-basis: 160px">
-&lt;a href="https://cciy.github.io/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash.jpg" data-size="667x1000">&lt;img src="https://cciy.github.io/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash.jpg"
-srcset="https://cciy.github.io/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hub241c2a9c7a2caf7e16a2a5bbc7141ff_18711_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hub241c2a9c7a2caf7e16a2a5bbc7141ff_18711_1024x0_resize_q75_box.jpg 1024w"
+alt="Photo by Helena Hertz on Unsplash"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+> &lt;img src="https://cciy.github.io/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash.jpg"
 width="667"
 height="1000"
+srcset="https://cciy.github.io/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hub241c2a9c7a2caf7e16a2a5bbc7141ff_18711_480x0_resize_q75_box.jpg 480w, https://cciy.github.io/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hub241c2a9c7a2caf7e16a2a5bbc7141ff_18711_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="Photo by Hudai Gayiran on Unsplash">
-&lt;/a>
-&lt;figcaption>Photo by Hudai Gayiran on Unsplash&lt;/figcaption>
-&lt;/figure>&lt;/p>
+alt="Photo by Hudai Gayiran on Unsplash"
+class="gallery-image"
+data-flex-grow="66"
+data-flex-basis="160px"
+>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -1843,7 +1843,7 @@ alt="Photo by Hudai Gayiran on Unsplash">
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>相册语法来自 &lt;a class="link" href="https://typlog.com/" target="_blank" rel="noopener"
->Typlog&lt;/a>&lt;/p></description></item><item><title>Markdown Syntax Guide</title><link>https://cciy.github.io/markdown-syntax-guide/</link><pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate><guid>https://cciy.github.io/markdown-syntax-guide/</guid><description>&lt;img src="https://cciy.github.io/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown Syntax Guide" />&lt;p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p>
+>Typlog&lt;/a>&lt;/p></description></item><item><title>Archives</title><link>https://cciy.github.io/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://cciy.github.io/archives/</guid><description/></item><item><title>Markdown Syntax Guide</title><link>https://cciy.github.io/markdown-syntax-guide/</link><pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate><guid>https://cciy.github.io/markdown-syntax-guide/</guid><description>&lt;img src="https://cciy.github.io/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown Syntax Guide" />&lt;p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p>
 &lt;h2 id="headings">Headings&lt;/h2>
 &lt;p>The following HTML &lt;code>&amp;lt;h1&amp;gt;&lt;/code>—&lt;code>&amp;lt;h6&amp;gt;&lt;/code> elements represent six levels of section headings. &lt;code>&amp;lt;h1&amp;gt;&lt;/code> is the highest section level while &lt;code>&amp;lt;h6&amp;gt;&lt;/code> is the lowest.&lt;/p>
 &lt;h1 id="h1">H1&lt;/h1>
@@ -2091,4 +2091,23 @@ $$&lt;/p></description></item><item><title>Emoji Support</title><link>https://cc
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item></channel></rss>
+&lt;/div></description></item><item><title>About</title><link>https://cciy.github.io/about/</link><pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate><guid>https://cciy.github.io/about/</guid><description>&lt;p>Written in Go, Hugo is an open source static site generator available under the &lt;a class="link" href="https://github.com/gohugoio/hugo/blob/master/LICENSE" target="_blank" rel="noopener"
+>Apache Licence 2.0.&lt;/a> Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.&lt;/p>
+&lt;p>Hugo makes use of a variety of open source projects including:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/yuin/goldmark" target="_blank" rel="noopener"
+>https://github.com/yuin/goldmark&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/alecthomas/chroma" target="_blank" rel="noopener"
+>https://github.com/alecthomas/chroma&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/muesli/smartcrop" target="_blank" rel="noopener"
+>https://github.com/muesli/smartcrop&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/spf13/cobra" target="_blank" rel="noopener"
+>https://github.com/spf13/cobra&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/spf13/viper" target="_blank" rel="noopener"
+>https://github.com/spf13/viper&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.&lt;/p>
+&lt;p>Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.&lt;/p>
+&lt;p>Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.&lt;/p>
+&lt;p>Learn more and contribute on &lt;a class="link" href="https://github.com/gohugoio" target="_blank" rel="noopener"
+>GitHub&lt;/a>.&lt;/p></description></item><item><title>Search</title><link>https://cciy.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cciy.github.io/search/</guid><description/></item></channel></rss>
