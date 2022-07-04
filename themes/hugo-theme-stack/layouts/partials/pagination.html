@@ -24,18 +24,3 @@
             {{ end }}
     </nav>
 {{ end }}
-<!--需要用waline获取评论条数-->
-<div id="waline1">
-</div>
-<script src='//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js'></script>
-<script>
-    new Waline({
-        el: '#waline1',
-        path: location.pathname,
-        visitor: true,
-        serverURL: 'https://my-blog-cciy.vercel.app',
-        lang: "zh-CN"
-    });
-    var element = document.getElementById("waline1");
-    element.parentNode.removeChild(element)
-</script>
