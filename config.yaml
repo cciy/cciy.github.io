@@ -59,8 +59,13 @@ params:
   comments:
     #        是否在文章底部默认显示评论系统
     enabled: true
-    provider: waline
-
+    provider: disqusjs
+    disqusjs:
+      shortname: https-cciy-github-io
+      apiUrl: https://cciy.github.io/
+      apiKey: IdMMTBWQaYotIfmfLed6forHU8460bQpiUGuYksfti5HHHSQdPvyQKqdN8SUFwlp
+      admin: cc
+      adminLabel:
     utterances:
       repo: cciy/hugo-comment
       issueTerm: pathname
