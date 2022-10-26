@@ -25,3 +25,9 @@
  │   └── themes
 ```
 ``config.yaml``
+
+
+```shell
+ hugo new post/xxxx
+ hugo server -D
+```

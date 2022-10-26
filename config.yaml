@@ -52,6 +52,8 @@ params:
 
   article:
     math: false
+    toc: true
+    readingTime: true
     license:
       enabled: true
       default: Licensed under CC BY-NC-SA 4.0
@@ -77,33 +79,34 @@ params:
       locale:
 
     waline:
-      path: location.pathname  # 全局评论地址
       serverURL:
-      meta: nick,mail,link # waline comment header info
-      requiredFields: [ 'nick','mail' ]
-      placeholder: 快来评论吧~  # 评论占位提示
-      avatar: robohash # gravatar头像
-      avatarCDN: https://sdn.geekzu.org/avatar/ #不建议使用loli源
-      pageSize: 10 # 评论每页显示数量
-      lang: zh-CN
-
-
+      lang:
+      pageview:
+      emoji:
+        - https://unpkg.com/@waline/emojis@1.0.1/weibo
+      requiredMeta:
+        - name
+        - email
+        - url
+      locale:
+        admin: Admin
+        placeholder:
 
   widgets:
-    enabled:
-      - search
-      - archives
-      - tag-cloud
-
-    archives:
-      limit: 5
-
-    tagCloud:
-      limit: 10
-
-    categoriesCloud:
-      limit: 20
-
+    homepage:
+      - type: search
+      - type: archives
+        params:
+          limit: 5
+      - type: categories
+        params:
+          limit: 10
+      - type: tag-cloud
+        params:
+          limit: 10
+#          添加目录
+    page:
+      - type: toc
   opengraph:
     twitter:
       # Your Twitter username
@@ -169,7 +172,7 @@ markup:
   #        内容目录表格
   tableOfContents:
     endLevel: 3
-    ordered: false
+    ordered: true
     startLevel: 2
   goldmark:
     renderer:
