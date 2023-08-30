@@ -1,14 +1,15 @@
----
-title: "Python协程async、await"
-description: 
-date: 2023-08-30T17:05:20+08:00
-image: 
-math: 
-license: 
-hidden: true
-comments: true
-draft: true
----
++++
+title = 'python协程async和await'
+date = "2023-08-30"
+description = ""
+categories = [
+]
+tags = [
+]
+image = ""
+tableofcontents = true
+draft = false
++++
 
 ## 洗衣机例子
 ```python
