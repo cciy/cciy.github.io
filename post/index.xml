@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Double`C Blog</title><link>https://cciy.github.io/post/</link><description>Recent content in Posts on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 02 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>SpringIoc</title><link>https://cciy.github.io/springioc/</link><pubDate>Sat, 02 Jul 2022 00:00:00 +0000</pubDate><guid>https://cciy.github.io/springioc/</guid><description>&lt;h2 id="新建spring项目">新建spring项目&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Double`C Blog</title><link>https://cciy.github.io/post/</link><description>Recent content in Posts on Double`C Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 02 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://cciy.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>数据库知识</title><link>https://cciy.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/</link><pubDate>Tue, 02 Aug 2022 00:00:00 +0000</pubDate><guid>https://cciy.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/</guid><description>&lt;h2 id="数据库的基本概念">数据库的基本概念&lt;/h2>
+&lt;h3 id="什么是数据库">什么是数据库&lt;/h3>
+&lt;p>数据库是保存有组织数据的容器（通常是一个文件或者一组文件），通过数据库管理系统创建和操作容器。
+数据库主要分为关系型数据库和非关系型数据库。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>数据库类型&lt;/th>
+&lt;th>定义&lt;/th>
+&lt;th>优点&lt;/th>
+&lt;th>缺点&lt;/th>
+&lt;th>常见&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>关系型数据库&lt;/td>
+&lt;td>建立在关系模型基础上，由多张能相互连接的表组成的数据库&lt;/td>
+&lt;td>1）使用表结构，格式一致，易于维护；2）使用 SQL 语句，可用于复杂查询；3）数据存储在磁盘中，安全性高&lt;/td>
+&lt;td>1）读写性能比较差；2）建立在关系模型上，不可避免空间浪费；3）固定的表结构，灵活度较低&lt;/td>
+&lt;td>MySQL，Microsoft SQL Server，Oracle，PostgreSQL 等&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>非关系型数据库&lt;/td>
+&lt;td>非关系型数据库又被称为 NoSQL（Not Only SQL )，通常指数据以 对象 的形式存储在数据库中，而对象之间的关系通过每个对象自身的属性来决定。&lt;/td>
+&lt;td>1) 存储数据的格式可以是 key-value 、文档、图片等形式，应用场景更广泛；2）可轻松进行海量数据的维护和处理；3）具有可扩展、高并发、高稳定性、成本低的优势；4）可以实现数据的分布式处理&lt;/td>
+&lt;td>1）不提供 SQL 支持；2）无事务处理，无法保证数据的完整性和安全性；3）功能没有关系型数据库完善&lt;/td>
+&lt;td>Neo4j，Redis，MongoDB 等&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="数据库连接泄露的含义">数据库连接泄露的含义&lt;/h3>
+&lt;p>数据库连接泄露指的是如果在某次使用或者某段程序中没有正确地关闭 Connection、Statement 和 ResultSet 资源，那么每次执行都会留下一些没有关闭的连接，这些连接失去了引用而不能得到重新使用，因此就造成了数据库连接的泄漏。数据库连接的资源是宝贵而且是有限的，如果在某段使用频率很高的代码中出现这种泄漏，那么数据库连接资源将被耗尽，影响系统的正常运转。&lt;/p></description></item><item><title>SpringIoc</title><link>https://cciy.github.io/springioc/</link><pubDate>Sat, 02 Jul 2022 00:00:00 +0000</pubDate><guid>https://cciy.github.io/springioc/</guid><description>&lt;h2 id="新建spring项目">新建spring项目&lt;/h2>
 &lt;p>Idea 按如下操作：&lt;code>File&lt;/code> -&amp;gt; &lt;code>New&lt;/code> -&amp;gt; &lt;code>Project&lt;/code>
 &lt;img src="https://cciy.github.io/springioc/img.png"
 width="800"
