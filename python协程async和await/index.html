@@ -1,0 +1,282 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="洗衣机例子 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 import time def washing1(): time.sleep(3) # 第一台洗衣机, print(&amp;#39;washer1 finished&amp;#39;) # 洗完了 def washing2(): time.sleep(8) print(&amp;#39;washer2 finished&amp;#39;) def washing3(): time.sleep(5) print(&amp;#39;washer3 finished&amp;#39;) if __name__ == &amp;#39;__main__&amp;#39;: start_time = time.time() washing1() washing2() washing3() end_time = time.time() print(&amp;#39;总共耗时：{}&amp;#39;.format(end_time-start_time)) 我们通过函数的方式调用，3个函数，总共耗时16 秒！
+这里函数的执行方式是同步运行的，于是这里需要知道一个概念：
+** 同步/异步 **
+同步：在发出一个同步调用时，在没有得到结果之前，该调用就不返回。 异步：在发出一个异步调用后，调用者不会立刻得到结果，该调用就返回了。 再举个小学生在学校学习的一个案例： 小明同学的妈妈给他早上安排了三件事： 1."><title>python协程async和await</title><link rel=canonical href=https://cciy.github.io/python%E5%8D%8F%E7%A8%8Basync%E5%92%8Cawait/><link rel=stylesheet href=/scss/style.min.f2f21d9d961219a01621263328d8997e1ae3b4f0371d455628df1fdc27d57bd6.css><meta property="og:title" content="python协程async和await"><meta property="og:description" content="洗衣机例子 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 import time def washing1(): time.sleep(3) # 第一台洗衣机, print(&amp;#39;washer1 finished&amp;#39;) # 洗完了 def washing2(): time.sleep(8) print(&amp;#39;washer2 finished&amp;#39;) def washing3(): time.sleep(5) print(&amp;#39;washer3 finished&amp;#39;) if __name__ == &amp;#39;__main__&amp;#39;: start_time = time.time() washing1() washing2() washing3() end_time = time.time() print(&amp;#39;总共耗时：{}&amp;#39;.format(end_time-start_time)) 我们通过函数的方式调用，3个函数，总共耗时16 秒！
+这里函数的执行方式是同步运行的，于是这里需要知道一个概念：
+** 同步/异步 **
+同步：在发出一个同步调用时，在没有得到结果之前，该调用就不返回。 异步：在发出一个异步调用后，调用者不会立刻得到结果，该调用就返回了。 再举个小学生在学校学习的一个案例： 小明同学的妈妈给他早上安排了三件事： 1."><meta property="og:url" content="https://cciy.github.io/python%E5%8D%8F%E7%A8%8Basync%E5%92%8Cawait/"><meta property="og:site_name" content="Double`C Blog"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:published_time" content="2023-08-30T00:00:00+00:00"><meta property="article:modified_time" content="2023-08-30T00:00:00+00:00"><meta name=twitter:title content="python协程async和await"><meta name=twitter:description content="洗衣机例子 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 import time def washing1(): time.sleep(3) # 第一台洗衣机, print(&amp;#39;washer1 finished&amp;#39;) # 洗完了 def washing2(): time.sleep(8) print(&amp;#39;washer2 finished&amp;#39;) def washing3(): time.sleep(5) print(&amp;#39;washer3 finished&amp;#39;) if __name__ == &amp;#39;__main__&amp;#39;: start_time = time.time() washing1() washing2() washing3() end_time = time.time() print(&amp;#39;总共耗时：{}&amp;#39;.format(end_time-start_time)) 我们通过函数的方式调用，3个函数，总共耗时16 秒！
+这里函数的执行方式是同步运行的，于是这里需要知道一个概念：
+** 同步/异步 **
+同步：在发出一个同步调用时，在没有得到结果之前，该调用就不返回。 异步：在发出一个异步调用后，调用者不会立刻得到结果，该调用就返回了。 再举个小学生在学校学习的一个案例： 小明同学的妈妈给他早上安排了三件事： 1."><link rel="shortcut icon" href=icon/site-icon.svg></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu901c40de2d13626daedaafd7ac54de2c_77578_300x0_resize_box_3.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a>
+<span class=emoji>😉</span></figure><div class=site-meta><h1 class=site-name><a href=/>Double`C Blog</a></h1><h2 class=site-description>学习成长记录.</h2></div></header><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>主页</span></a></li><li><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>关于</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>文章</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>搜索</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>暗色模式</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#洗衣机例子>洗衣机例子</a></li><li><a href=#多个任务执行-asynciocreate_task>多个任务执行 asyncio.create_task()</a></li><li><a href=#await-使用>await 使用</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><div class=article-title-wrapper><h2 class=article-title><a href=/python%E5%8D%8F%E7%A8%8Basync%E5%92%8Cawait/>python协程async和await</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2023年08月30日</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>阅读时长: 2 分钟</time></div></footer></div></header><section class=article-content><h2 id=洗衣机例子>洗衣机例子</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>time</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>washing1</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>3</span><span class=p>)</span>  <span class=c1># 第一台洗衣机,</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;washer1 finished&#39;</span><span class=p>)</span>  <span class=c1># 洗完了</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>washing2</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>8</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;washer2 finished&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>washing3</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>5</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;washer3 finished&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>start_time</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>washing1</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>washing2</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>washing3</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>end_time</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;总共耗时：</span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>end_time</span><span class=o>-</span><span class=n>start_time</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><p>我们通过函数的方式调用，3个函数，总共耗时16 秒！</p><p>这里函数的执行方式是同步运行的，于是这里需要知道一个概念：</p><p>** 同步/异步 **</p><p>同步：在发出一个同步调用时，在没有得到结果之前，该调用就不返回。
+异步：在发出一个异步调用后，调用者不会立刻得到结果，该调用就返回了。
+再举个小学生在学校学习的一个案例：
+小明同学的妈妈给他早上安排了三件事：
+1.洗衣机洗衣服需要花 15 分钟，
+2.电饭煲做饭需要花 20 分钟，
+3.做作业需要花 25 分钟
+那么请问：小明同学早上完成以上三件事需要花多久？？?
+这个大家肯定都知道是25分钟，因为在做作业的时候，可以先按下洗衣机和电饭煲的按钮，不用等它完成，洗衣机和电饭煲做好了会发出‘滴滴滴’的声音通知你。</p><p>所以这三件事是可以异步完成的，这就是异步的魅力！</p><h2 id=多个任务执行-asynciocreate_task>多个任务执行 asyncio.create_task()</h2><p>当我们需要3台洗衣机一起来工作，这时候需要创建多个任务，也就是会用到<strong>asyncio.create_task()</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>time</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>asyncio</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>def</span> <span class=nf>washing1</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>3</span><span class=p>)</span>  <span class=c1># 第一台洗衣机,</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;washer1 finished&#39;</span><span class=p>)</span>  <span class=c1># 洗完了</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>def</span> <span class=nf>washing2</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>8</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;washer2 finished&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>def</span> <span class=nf>washing3</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>5</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;washer3 finished&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;start main:&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>start_time</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>task1</span> <span class=o>=</span> <span class=n>asyncio</span><span class=o>.</span><span class=n>create_task</span><span class=p>(</span><span class=n>washing1</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>    <span class=n>task2</span> <span class=o>=</span> <span class=n>asyncio</span><span class=o>.</span><span class=n>create_task</span><span class=p>(</span><span class=n>washing2</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>    <span class=n>task3</span> <span class=o>=</span> <span class=n>asyncio</span><span class=o>.</span><span class=n>create_task</span><span class=p>(</span><span class=n>washing3</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>    <span class=k>await</span> <span class=n>task1</span>
+</span></span><span class=line><span class=cl>    <span class=k>await</span> <span class=n>task2</span>
+</span></span><span class=line><span class=cl>    <span class=k>await</span> <span class=n>task3</span>
+</span></span><span class=line><span class=cl>    <span class=n>end_time</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;-----------end main----------&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;总共耗时:</span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>end_time</span><span class=o>-</span><span class=n>start_time</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=c1># asyncio.run(main())</span>
+</span></span><span class=line><span class=cl>    <span class=n>loop</span> <span class=o>=</span> <span class=n>asyncio</span><span class=o>.</span><span class=n>get_event_loop</span><span class=p>()</span>  <span class=c1># 创建一个事件循环</span>
+</span></span><span class=line><span class=cl>    <span class=n>result</span> <span class=o>=</span> <span class=n>loop</span><span class=o>.</span><span class=n>run_until_complete</span><span class=p>(</span><span class=n>main</span><span class=p>())</span>  <span class=c1># 将协程对象加入到事件循环中，并执行</span>
+</span></span></code></pre></td></tr></table></div></div><p>运行结果：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cmd data-lang=cmd><span class=line><span class=cl><span class=k>start</span> main:
+</span></span><span class=line><span class=cl>washer1 finished
+</span></span><span class=line><span class=cl>washer2 finished
+</span></span><span class=line><span class=cl>washer3 finished
+</span></span><span class=line><span class=cl>-----------end main----------
+</span></span><span class=line><span class=cl>总共耗时:16.000632286071777
+</span></span></code></pre></td></tr></table></div></div><h2 id=await-使用>await 使用</h2><p>上面虽然异步执行了三个任务，但是时间并没减少，主要是因为 <code>time.sleep()</code> 是阻塞的，需换成异步的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>time</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>asyncio</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>def</span> <span class=nf>washing1</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=k>await</span> <span class=n>asyncio</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>3</span><span class=p>)</span>  <span class=c1># 第一台洗衣机,</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;washer1 finished&#39;</span><span class=p>)</span>  <span class=c1># 洗完了</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>def</span> <span class=nf>washing2</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=k>await</span> <span class=n>asyncio</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>8</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;washer2 finished&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>def</span> <span class=nf>washing3</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=k>await</span> <span class=n>asyncio</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>5</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;washer3 finished&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;start main:&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>start_time</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=c1># step1 创建一个事件循环</span>
+</span></span><span class=line><span class=cl>    <span class=n>loop</span> <span class=o>=</span> <span class=n>asyncio</span><span class=o>.</span><span class=n>get_event_loop</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=c1># step2 将异步函数（协程）加入事件队列</span>
+</span></span><span class=line><span class=cl>    <span class=n>tasks</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=n>washing1</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>        <span class=n>washing2</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>        <span class=n>washing3</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=c1># step3 执行事件队列 直到最晚的一个事件被处理完毕后结束</span>
+</span></span><span class=line><span class=cl>    <span class=n>loop</span><span class=o>.</span><span class=n>run_until_complete</span><span class=p>(</span><span class=n>asyncio</span><span class=o>.</span><span class=n>wait</span><span class=p>(</span><span class=n>tasks</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>end_time</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;-----------end main----------&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;总共耗时:</span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>end_time</span><span class=o>-</span><span class=n>start_time</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><p>这样就可以达到我们的预期，总共耗时是8秒了</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>start main:
+</span></span><span class=line><span class=cl>washer1 finished
+</span></span><span class=line><span class=cl>washer3 finished
+</span></span><span class=line><span class=cl>washer2 finished
+</span></span><span class=line><span class=cl>-----------end main----------
+</span></span><span class=line><span class=cl>总共耗时:8.002010822296143
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>asyncio</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>time</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>def</span> <span class=nf>say_after</span><span class=p>(</span><span class=n>delay</span><span class=p>,</span> <span class=n>what</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>await</span> <span class=n>asyncio</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=n>delay</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>what</span><span class=si>}</span><span class=s2> - </span><span class=si>{</span><span class=n>delay</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>async</span>  <span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;started at </span><span class=si>{</span><span class=n>time</span><span class=o>.</span><span class=n>strftime</span><span class=p>(</span><span class=s1>&#39;</span><span class=si>%X</span><span class=s1>&#39;</span><span class=p>)</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>ret</span><span class=o>=</span><span class=k>await</span> <span class=n>asyncio</span><span class=o>.</span><span class=n>gather</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=n>say_after</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=s1>&#39;hello&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>        <span class=n>say_after</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span><span class=s1>&#39;world&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>ret</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;finished at </span><span class=si>{</span><span class=n>time</span><span class=o>.</span><span class=n>strftime</span><span class=p>(</span><span class=s1>&#39;</span><span class=si>%X</span><span class=s1>&#39;</span><span class=p>)</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>asyncio</span><span class=o>.</span><span class=n>run</span><span class=p>(</span><span class=n>main</span><span class=p>())</span>
+</span></span></code></pre></td></tr></table></div></div><p>运行结果
+<code>started at 17:19:56 ['hello - 1', 'world - 2'] finished at 17:19:58</code></p></section><footer class=article-footer><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><link rel=stylesheet href=/scss/partials/comments/disqusjs.min.css><div class=disqus-container><div id=disqus_thread></div><script type=application/javascript>let disqusjs;function loadDisqusJS(){disqusjs=new DisqusJS({shortname:"https-cciy-github-io",siteName:"Double`C Blog",apikey:"IdMMTBWQaYotIfmfLed6forHU8460bQpiUGuYksfti5HHHSQdPvyQKqdN8SUFwlp",api:"https://cciy.github.io/",admin:"cc"})}function lazyLoadDisqusJS(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}let e=document.createElement("script");e.src="https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js",e.async=!1,document.body.appendChild(e),e.onload=()=>{loadDisqusJS(),window.addEventListener("onColorSchemeChange",e=>{disqusjs&&loadDisqusJS()})}}let runningOnBrowser=typeof window!="undefined",isBot=runningOnBrowser&&!("onscroll"in window)||typeof navigator!="undefined"&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;if(!isBot&&supportsIntersectionObserver){let e=new IntersectionObserver(function(t){t[0].isIntersecting&&(lazyLoadDisqusJS(),e.disconnect())});e.observe(document.getElementById("disqus_thread"))}else lazyLoadDisqusJS()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div><footer class=site-footer><section class=copyright>&copy;
+2020 -
+2023 Double`C Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.19.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
